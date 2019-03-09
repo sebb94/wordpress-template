@@ -3,4 +3,3 @@
 
 require_once dirname( __FILE__ ) . '/inc/admin_functions.php'; 
 
-echo "nie chcę tego!!!"
