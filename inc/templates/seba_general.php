@@ -4,10 +4,10 @@ settings_errors();
 $firstName=esc_attr(get_option('first_name'));
 $lastName=esc_attr(get_option('last_name'));
 $fullName = $firstName . " " . $lastName;
- $bioDesc =esc_attr(get_option('bio_description'));
+$bioDesc =esc_attr(get_option('bio_description'));
 $picture = esc_attr(get_option('profile_picture'));
-echo $picture; 
-echo "asd";
+
+
 ?>
 <div class="seba-admin-container"> 
 <div class="seba-sidebar-preview">
@@ -29,8 +29,7 @@ echo "asd";
 <?php 
 settings_fields( 'seba-settings-group');
 do_settings_sections( 'seba_options' );
-submit_button();
-
+ submit_button();
 ?>
 
 </form>
