@@ -29,6 +29,7 @@ function seba_add_admin_page() {
 add_action('admin_menu', 'seba_add_admin_page');
 
 function seba_custom_settings() {
+    register_setting('seba-settings-group', 'profile_picture');
     register_setting('seba-settings-group', 'first_name');
     register_setting('seba-settings-group', 'last_name');
     register_setting('seba-settings-group', 'bio_description');
@@ -37,12 +38,20 @@ function seba_custom_settings() {
     register_setting('seba-settings-group', 'instagram_handler');
     // id sekcji, tytuł, funkcja, slug 
     add_settings_section('seba_sidebar_options', 'Sidebar Options', 'seba_sidebar_options', 'seba_options');
+    add_settings_field('sidebar-profile-picture', 'Profile picture', 'seba_profile_picture', 'seba_options', 'seba_sidebar_options');
     add_settings_field('sidebar-name', 'Full name', 'seba_sidebar_name', 'seba_options', 'seba_sidebar_options');
     add_settings_field('sidebar-description', 'Your Description', 'seba_sidebar_description', 'seba_options', 'seba_sidebar_options');
     add_settings_field('sidebar-twitter', 'Twiter', 'seba_sidebar_twitter', 'seba_options', 'seba_sidebar_options');
     add_settings_field('sidebar-facebook', 'Facebook', 'seba_sidebar_facebook', 'seba_options', 'seba_sidebar_options');
     add_settings_field('sidebar-instagram', 'Instagram', 'seba_sidebar_instagram', 'seba_options', 'seba_sidebar_options');
 }
+
+function seba_profile_picture(){
+  $picture = esc_attr(get_option('profile_picture'));
+     echo '<input type="button" value="Upload Profile Picture" id="upload-button">';
+      echo '<input type="hidden" name="profile_picture" val="'. $picture . '" id="profile-picture">
+      <p class="description">Insert Your Profile picture. You can watch preview and remember to click Save Changes.</p>';
+} 
 
 function seba_sidebar_name() {
     $firstName=esc_attr(get_option('first_name'));
