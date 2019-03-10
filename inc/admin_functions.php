@@ -31,15 +31,17 @@ add_action('admin_menu', 'seba_add_admin_page');
 function seba_custom_settings() {
     register_setting('seba-settings-group', 'first_name');
     register_setting('seba-settings-group', 'last_name');
+    register_setting('seba-settings-group', 'bio_description');
     register_setting('seba-settings-group', 'twitter_handler', 'seba_sanitize_twitter_handler');
     register_setting('seba-settings-group', 'facebook_handler');
     register_setting('seba-settings-group', 'instagram_handler');
     // id sekcji, tytuł, funkcja, slug 
     add_settings_section('seba_sidebar_options', 'Sidebar Options', 'seba_sidebar_options', 'seba_options');
-    add_settings_field('sidebar_name', 'Full name', 'seba_sidebar_name', 'seba_options', 'seba_sidebar_options');
-    add_settings_field('sidebar_twitter', 'Twiter', 'seba_sidebar_twitter', 'seba_options', 'seba_sidebar_options');
-    add_settings_field('sidebar_facebook', 'Facebook', 'seba_sidebar_facebook', 'seba_options', 'seba_sidebar_options');
-    add_settings_field('sidebar_instagram', 'Instagram', 'seba_sidebar_instagram', 'seba_options', 'seba_sidebar_options');
+    add_settings_field('sidebar-name', 'Full name', 'seba_sidebar_name', 'seba_options', 'seba_sidebar_options');
+    add_settings_field('sidebar-description', 'Your Description', 'seba_sidebar_description', 'seba_options', 'seba_sidebar_options');
+    add_settings_field('sidebar-twitter', 'Twiter', 'seba_sidebar_twitter', 'seba_options', 'seba_sidebar_options');
+    add_settings_field('sidebar-facebook', 'Facebook', 'seba_sidebar_facebook', 'seba_options', 'seba_sidebar_options');
+    add_settings_field('sidebar-instagram', 'Instagram', 'seba_sidebar_instagram', 'seba_options', 'seba_sidebar_options');
 }
 
 function seba_sidebar_name() {
@@ -47,6 +49,10 @@ function seba_sidebar_name() {
     $lastName=esc_attr(get_option('last_name'));
     echo '<input type="text" name="first_name" value="'.$firstName.'" placeholder="First name"><p class="description">Insert Your First name</p>';
     echo '<input type="text" name="last_name" value="'.$lastName.'" placeholder="Last name"><p class="description">Insert Your Last name</p>';
+}
+function seba_sidebar_description(){
+        $bioDesc =esc_attr(get_option('bio_description'));
+    echo '<input type="text" name="bio_description" value="'.$bioDesc.'" placeholder="Your description"><p class="description">Insert Your Description</p>';
 }
 
 function seba_sidebar_options() {
