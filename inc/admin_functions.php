@@ -17,11 +17,13 @@ function seba_theme_css_settings() {
 
 function seba_add_admin_page() {
     // admin menu page
-    add_menu_page('Seba theme options', 'Theme options', 'manage_options', 'seba_options', 'seba_theme_create_page', 'dashicons-admin-home', 133);
+    add_menu_page('Seba theme options', 'Seba Theme', 'manage_options', 'seba_options', 'seba_theme_create_page', 'dashicons-admin-home', 133);
     // admin sub menu
     // nie ma efektu, że taki powiela się zakładka w submenu o takim samym slagu
-    add_submenu_page('seba_options', 'Theme settings', 'General', 'manage_options', 'seba_options', 'seba_theme_create_page');
+    add_submenu_page('seba_options', 'Sidebar settigns', 'Sidebar', 'manage_options', 'seba_options', 'seba_theme_create_page');
+        add_submenu_page('seba_options', 'Theme options', 'Theme options', 'manage_options', 'theme_options', 'seba_theme_support_page');
     add_submenu_page('seba_options', 'Css option', 'Css options', 'manage_options', 'css_options', 'seba_theme_css_settings');
+
     // Activate  setting custom settings
     add_action('admin_init', 'seba_custom_settings');
 }
@@ -29,6 +31,7 @@ function seba_add_admin_page() {
 add_action('admin_menu', 'seba_add_admin_page');
 
 function seba_custom_settings() {
+    /* sidebar */
     register_setting('seba-settings-group', 'profile_picture');
     register_setting('seba-settings-group', 'first_name');
     register_setting('seba-settings-group', 'last_name');
@@ -44,15 +47,48 @@ function seba_custom_settings() {
     add_settings_field('sidebar-twitter', 'Twiter', 'seba_sidebar_twitter', 'seba_options', 'seba_sidebar_options');
     add_settings_field('sidebar-facebook', 'Facebook', 'seba_sidebar_facebook', 'seba_options', 'seba_sidebar_options');
     add_settings_field('sidebar-instagram', 'Instagram', 'seba_sidebar_instagram', 'seba_options', 'seba_sidebar_options');
+
+    /* theme options */
+    register_setting('seba-theme-support', 'post_formats', 'seba_post_formats_callback');
+    add_settings_section('seba-theme-options', 'Theme options', 'seba_theme_options', 'theme_options');
+    add_settings_field('post-formats','Post Formats','seba_post_format','theme_options','seba-theme-options');
 }
 
-function seba_profile_picture(){
-  $picture = esc_attr(get_option('profile_picture'));
-     echo '<input type="button" value="Upload Profile Picture" id="upload-button">';
-      echo '<input type="hidden" name="profile_picture" value="'. $picture . '" id="profile-picture">
-      <p class="description">Insert Your Profile picture. You can watch preview and remember to click Save Changes.</p>';
+/* theme settings functions */
 
-} 
+function seba_theme_support_page(){
+    require_once(get_template_directory() . '/inc/templates/seba_theme_options.php');
+}
+function seba_post_formats_callback($input){
+return $input;
+}
+
+function seba_theme_options(){
+    //echo "Theme dsadsadsadsaoptions!";
+}
+
+function seba_post_format(){ 
+    $options = get_option('post_formats');
+   // var_dump($options);
+   $formats = array('aside','gallery','link','image','quote','status','video','audio','chat');
+    $output = '';
+    foreach ($formats as $format){
+        if(isset($options[$format])){
+            $checked = 'checked';
+        }
+        else{
+            $checked = '';
+        }
+        $output .= '<label><input type="checkbox" id="'.$format.'" name="post_formats['.$format.']" value="1" '.$checked.'>' . $format . '</label><br>';
+    }
+    // z callback function trzeba echo a nie return
+   echo $output;
+}
+
+/* sidebar functions */
+function seba_sidebar_options() {
+    echo "Customize your Sidebar Informations";
+}
 
 function seba_sidebar_name() {
     $firstName=esc_attr(get_option('first_name'));
@@ -65,9 +101,13 @@ function seba_sidebar_description(){
     echo '<input type="text" name="bio_description" value="'.$bioDesc.'" placeholder="Your description"><p class="description">Insert Your Description</p>';
 }
 
-function seba_sidebar_options() {
-    echo "Customize your Sidebar Informations";
-}
+function seba_profile_picture(){
+  $picture = esc_attr(get_option('profile_picture'));
+     echo '<input type="button" value="Upload Profile Picture" id="upload-button">';
+      echo '<input type="hidden" name="profile_picture" value="'. $picture . '" id="profile-picture">
+      <p class="description">Insert Your Profile picture. You can watch preview and remember to click Save Changes.</p>';
+
+} 
 
 function seba_sidebar_twitter() {
     $twitterHandler=esc_attr(get_option('twitter_handler'));
@@ -94,3 +134,4 @@ function seba_sanitize_twitter_handler($input) {
     return $output;
 
 }
+

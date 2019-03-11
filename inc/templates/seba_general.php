@@ -1,4 +1,5 @@
 <h1>Wecolome to Seba Theme!</h1>
+<h2>You can change sidebar options here!</h2>
 <?php
 settings_errors(); 
 $firstName=esc_attr(get_option('first_name'));
