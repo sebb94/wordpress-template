@@ -30,7 +30,7 @@ $picture = esc_attr(get_option('profile_picture'));
 <?php 
 settings_fields( 'seba-settings-group');
 do_settings_sections( 'seba_options' );
- submit_button();
+ submit_button('Save Changes','primary','btnSubmit');
 ?>
 
 </form>

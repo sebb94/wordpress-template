@@ -49,18 +49,22 @@ function seba_custom_settings() {
     add_settings_field('sidebar-instagram', 'Instagram', 'seba_sidebar_instagram', 'seba_options', 'seba_sidebar_options');
 
     /* theme options */
-    register_setting('seba-theme-support', 'post_formats', 'seba_post_formats_callback');
+    register_setting('seba-theme-support', 'post_formats');
+    register_setting('seba-theme-support', 'custom_header');
+    register_setting('seba-theme-support', 'custom_background');
+
     add_settings_section('seba-theme-options', 'Theme options', 'seba_theme_options', 'theme_options');
+
+
     add_settings_field('post-formats','Post Formats','seba_post_format','theme_options','seba-theme-options');
+    add_settings_field('custom-header', 'Custom Header', 'seba_custom_header','theme_options','seba-theme-options');
+     add_settings_field('custom-background', 'Custom Background', 'seba_custom_background','theme_options','seba-theme-options');
 }
 
 /* theme settings functions */
 
 function seba_theme_support_page(){
     require_once(get_template_directory() . '/inc/templates/seba_theme_options.php');
-}
-function seba_post_formats_callback($input){
-return $input;
 }
 
 function seba_theme_options(){
@@ -84,6 +88,30 @@ function seba_post_format(){
     // z callback function trzeba echo a nie return
    echo $output;
 }
+function seba_custom_header(){
+   $options = get_option('custom_header');
+echo $options;
+        if(isset($options) && $options == 1){
+            $checked = 'checked';
+        }
+        else{
+            $checked = '';
+        }
+        echo '<label><input type="checkbox" id="custom_header" name="custom_header" value="1" '.$checked.'>Activate Custom Header</label>';
+    
+}
+add_action( 'after_setup_theme', 'seba_custom_header' );
+function seba_custom_background(){
+       $options = get_option('custom_background');
+        if(isset($options) && $options == 1){
+            $checked = 'checked';
+        }
+        else{
+            $checked = '';
+        }
+        echo '<label><input type="checkbox" id="custom_background" name="custom_background" value="1" '.$checked.'>Activate Custom background</label>';
+    
+}
 
 /* sidebar functions */
 function seba_sidebar_options() {
@@ -103,9 +131,18 @@ function seba_sidebar_description(){
 
 function seba_profile_picture(){
   $picture = esc_attr(get_option('profile_picture'));
-     echo '<input type="button" value="Upload Profile Picture" id="upload-button">';
-      echo '<input type="hidden" name="profile_picture" value="'. $picture . '" id="profile-picture">
+    if(empty($picture)){
+ echo '<input type="button" value="Upload Profile Picture" id="upload-button">';
+      echo '<input type="hidden" name="profile_picture" value="" id="profile-picture">
       <p class="description">Insert Your Profile picture. You can watch preview and remember to click Save Changes.</p>';
+    }
+    else{
+ echo '<input type="button" value="Upload Profile Picture" id="upload-button" class="profile-button">';
+      echo '<input type="hidden" name="profile_picture" value="'. $picture . '" id="profile-picture">
+      <input type="button" value="Remove" id="remove-picture" class="profile-button">
+      <p class="description">Insert Your Profile picture. You can watch preview and remember to click Save Changes.</p>';
+    }
+    
 
 } 
 
@@ -134,4 +171,5 @@ function seba_sanitize_twitter_handler($input) {
     return $output;
 
 }
+
 

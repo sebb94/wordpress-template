@@ -25,6 +25,18 @@
         mediaUploader.open();
     });  
 
+    $('#remove-picture').on('click',function(e){
+        e.preventDefault();
+        let answer = confirm("Are You sure you want to delete Your Profile Picture?");
+
+        if(answer){
+            $('#profile-picture').val('');
+            $('.seba-general-form').submit(); 
+        }else{
+            alert('nie');
+        }
+        return;
+    });
    
 
 })(jQuery)

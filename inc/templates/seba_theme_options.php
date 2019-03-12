@@ -1,4 +1,4 @@
-<h2>You can change sidebar options here!</h2>
+<h2>You can change theme options here!</h2>
 <?php
 settings_errors(); 
 // $firstName=esc_attr(get_option('first_name'));
