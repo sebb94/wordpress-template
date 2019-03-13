@@ -7,13 +7,22 @@ Admin page
 
 */
 
+/* create page */
 function seba_theme_create_page() {
     require_once(get_template_directory() . '/inc/templates/seba_general.php');
 }
 
+function seba_theme_support_page(){
+    require_once(get_template_directory() . '/inc/templates/seba_theme_options.php');
+}
+function seba_theme_contact_form_settings(){
+    require_once(get_template_directory() . '/inc/templates/seba_contact_form.php');
+}
 function seba_theme_css_settings() {
     require_once(get_template_directory() . '/inc/templates/seba_css.php');
 }
+
+// add page //
 
 function seba_add_admin_page() {
     // admin menu page
@@ -21,7 +30,8 @@ function seba_add_admin_page() {
     // admin sub menu
     // nie ma efektu, że taki powiela się zakładka w submenu o takim samym slagu
     add_submenu_page('seba_options', 'Sidebar settigns', 'Sidebar', 'manage_options', 'seba_options', 'seba_theme_create_page');
-        add_submenu_page('seba_options', 'Theme options', 'Theme options', 'manage_options', 'theme_options', 'seba_theme_support_page');
+    add_submenu_page('seba_options', 'Theme options', 'Theme options', 'manage_options', 'theme_options', 'seba_theme_support_page');
+    add_submenu_page('seba_options', 'Seba Concact Form', 'Contact form', 'manage_options', 'contact_form_options', 'seba_theme_contact_form_settings');
     add_submenu_page('seba_options', 'Css option', 'Css options', 'manage_options', 'css_options', 'seba_theme_css_settings');
 
     // Activate  setting custom settings
@@ -39,7 +49,6 @@ function seba_custom_settings() {
     register_setting('seba-settings-group', 'twitter_handler', 'seba_sanitize_twitter_handler');
     register_setting('seba-settings-group', 'facebook_handler');
     register_setting('seba-settings-group', 'instagram_handler');
-    // id sekcji, tytuł, funkcja, slug 
     add_settings_section('seba_sidebar_options', 'Sidebar Options', 'seba_sidebar_options', 'seba_options');
     add_settings_field('sidebar-profile-picture', 'Profile picture', 'seba_profile_picture', 'seba_options', 'seba_sidebar_options');
     add_settings_field('sidebar-name', 'Full name', 'seba_sidebar_name', 'seba_options', 'seba_sidebar_options');
@@ -52,20 +61,41 @@ function seba_custom_settings() {
     register_setting('seba-theme-support', 'post_formats');
     register_setting('seba-theme-support', 'custom_header');
     register_setting('seba-theme-support', 'custom_background');
-
     add_settings_section('seba-theme-options', 'Theme options', 'seba_theme_options', 'theme_options');
-
-
     add_settings_field('post-formats','Post Formats','seba_post_format','theme_options','seba-theme-options');
     add_settings_field('custom-header', 'Custom Header', 'seba_custom_header','theme_options','seba-theme-options');
-     add_settings_field('custom-background', 'Custom Background', 'seba_custom_background','theme_options','seba-theme-options');
+    add_settings_field('custom-background', 'Custom Background', 'seba_custom_background','theme_options','seba-theme-options');
+
+    /* contact options */
+
+    register_setting('seba-contact-options', 'activate_contact');
+    add_settings_section('seba-contact-section', 'Contact form', 'seba_contact_section', 'contact_form_options');
+    add_settings_field('activate-form', 'Activate Contact form', 'seba_activate_concact_form', 'contact_form_options', 'seba-contact-section');
+}
+/* contact form settings functions */
+
+
+
+function seba_contact_section(){
+
+}
+function seba_activate_concact_form(){
+  $options = get_option('activate_contact');
+        if(isset($options) && $options == 1){
+            $checked = 'checked';
+        }
+        else{
+            $checked = '';
+        }
+        $output = '<input type="checkbox" id="custom_contact_form" name="activate_contact" value="1" '.$checked.'><br>';
+    
+    // z callback function trzeba echo a nie return
+   echo $output;
 }
 
 /* theme settings functions */
 
-function seba_theme_support_page(){
-    require_once(get_template_directory() . '/inc/templates/seba_theme_options.php');
-}
+
 
 function seba_theme_options(){
     //echo "Theme dsadsadsadsaoptions!";
@@ -90,17 +120,18 @@ function seba_post_format(){
 }
 function seba_custom_header(){
    $options = get_option('custom_header');
-echo $options;
+
         if(isset($options) && $options == 1){
             $checked = 'checked';
         }
         else{
             $checked = '';
         }
-        echo '<label><input type="checkbox" id="custom_header" name="custom_header" value="1" '.$checked.'>Activate Custom Header</label>';
+        
+       echo '<label><input type="checkbox" id="custom_header" name="custom_header" value="1" '.$checked.'>Activate Custom Header</label>';
     
 }
-add_action( 'after_setup_theme', 'seba_custom_header' );
+
 function seba_custom_background(){
        $options = get_option('custom_background');
         if(isset($options) && $options == 1){
