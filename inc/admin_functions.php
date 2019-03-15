@@ -18,8 +18,8 @@ function seba_theme_support_page(){
 function seba_theme_contact_form_settings(){
     require_once(get_template_directory() . '/inc/templates/seba_contact_form.php');
 }
-function seba_theme_css_settings() {
-    require_once(get_template_directory() . '/inc/templates/seba_css.php');
+function seba_theme_css_page() {
+    require_once(get_template_directory() . '/inc/templates/seba_custom_css.php');
 }
 
 // add page //
@@ -32,7 +32,7 @@ function seba_add_admin_page() {
     add_submenu_page('seba_options', 'Sidebar settigns', 'Sidebar', 'manage_options', 'seba_options', 'seba_theme_create_page');
     add_submenu_page('seba_options', 'Theme options', 'Theme options', 'manage_options', 'theme_options', 'seba_theme_support_page');
     add_submenu_page('seba_options', 'Seba Concact Form', 'Contact form', 'manage_options', 'contact_form_options', 'seba_theme_contact_form_settings');
-    add_submenu_page('seba_options', 'Css option', 'Css options', 'manage_options', 'css_options', 'seba_theme_css_settings');
+    add_submenu_page('seba_options', 'Css option', 'Css options', 'manage_options', 'css_options', 'seba_theme_css_page');
 
     // Activate  setting custom settings
     add_action('admin_init', 'seba_custom_settings');
@@ -67,14 +67,34 @@ function seba_custom_settings() {
     add_settings_field('custom-background', 'Custom Background', 'seba_custom_background','theme_options','seba-theme-options');
 
     /* contact options */
-
     register_setting('seba-contact-options', 'activate_contact');
     add_settings_section('seba-contact-section', 'Contact form', 'seba_contact_section', 'contact_form_options');
     add_settings_field('activate-form', 'Activate Contact form', 'seba_activate_concact_form', 'contact_form_options', 'seba-contact-section');
+
+    /* custom CSS Options */
+    register_setting('seba-custom-css-options', 'seba_css', 'seba_sanitize_custom_css');
+    add_settings_section('seba-custom-css-section', 'Seba CSS', 'seba_custom_css_section_callback', 'css_options');
+    add_settings_field('custom-css', 'Insert your Custom CSS', 'seba_custom_css_callback', 'css_options', 'seba-custom-css-section');
+
 }
+
+/* CSS setting functions */
+
+function seba_custom_css_section_callback(){
+    echo "Customize Seba Theme with Your Css";
+}
+function seba_custom_css_callback(){
+    // z register_settings
+  $css = get_option('seba_css');
+    if(empty($css)){
+        $css = "/*Custom css here*/";
+    }
+  echo '<div id="CSS_editor_custom">' . $css . '</div>';
+    echo '<textarea name="seba_css" id="seba_css" style="display:none;visibility:hidden;">' . $css . '</textarea>'; 
+}
+
+
 /* contact form settings functions */
-
-
 
 function seba_contact_section(){
 
@@ -94,9 +114,6 @@ function seba_activate_concact_form(){
 }
 
 /* theme settings functions */
-
-
-
 function seba_theme_options(){
     //echo "Theme dsadsadsadsaoptions!";
 }
@@ -104,7 +121,7 @@ function seba_theme_options(){
 function seba_post_format(){ 
     $options = get_option('post_formats');
    // var_dump($options);
-   $formats = array('aside','gallery','link','image','quote','status','video','audio','chat');
+    $formats = array('aside','gallery','link','image','quote','status','video','audio','chat');
     $output = '';
     foreach ($formats as $format){
         if(isset($options[$format])){
@@ -126,8 +143,7 @@ function seba_custom_header(){
         }
         else{
             $checked = '';
-        }
-        
+        }  
        echo '<label><input type="checkbox" id="custom_header" name="custom_header" value="1" '.$checked.'>Activate Custom Header</label>';
     
 }
@@ -141,7 +157,6 @@ function seba_custom_background(){
             $checked = '';
         }
         echo '<label><input type="checkbox" id="custom_background" name="custom_background" value="1" '.$checked.'>Activate Custom background</label>';
-    
 }
 
 /* sidebar functions */
@@ -173,18 +188,14 @@ function seba_profile_picture(){
       <input type="button" value="Remove" id="remove-picture" class="profile-button">
       <p class="description">Insert Your Profile picture. You can watch preview and remember to click Save Changes.</p>';
     }
-    
-
 } 
 
 function seba_sidebar_twitter() {
     $twitterHandler=esc_attr(get_option('twitter_handler'));
     echo '<input type="text" name="twitter_handler" value="'.$twitterHandler.'" placeholder="Your Twitter Account"><p class="description">Insert Your Twitter Account without @ charakter</p>';
-
 }
 
 function seba_sidebar_facebook() {
-
     $facebookHandler=esc_attr(get_option('facebook_handler'));
     echo '<input type="text" name="facebook_handler" value="'.$facebookHandler.'" placeholder="Your facebook Account"><p class="description">Insert Your Facebook Account link</p>';
 }
@@ -199,6 +210,11 @@ function seba_sidebar_instagram() {
 function seba_sanitize_twitter_handler($input) {
     $output=sanitize_text_field($input);
     $output=str_replace('@', '', $output);
+    return $output;
+}
+
+function seba_sanitize_custom_css($input) {
+    $output = esc_textarea($input);
     return $output;
 
 }
