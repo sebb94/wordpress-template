@@ -34,7 +34,10 @@ add_action('admin_enqueue_scripts', 'seba_load_admin_scripts');
 
 function seba_load_scripts(){
       wp_enqueue_style('bootstrap',get_template_directory_uri() . '/css/bootstrap.min.css', array(), '4.3.1', 'all');
-       wp_enqueue_style('seba',get_template_directory_uri() . '/css/seba.css', array('bootstrap'), '1.0.0', 'all');
+       wp_enqueue_style('seba',get_template_directory_uri() . '/css/seba.css', array('bootstrap','raleway'), '1.0.0', 'all');
+       wp_enqueue_style('raleway', 'https://fonts.googleapis.com/css?family=Raleway:200,300,400,500&amp;subset=latin-ext' , array('bootstrap'));
+       wp_enqueue_style('font-awesome', 'https://use.fontawesome.com/releases/v5.7.2/css/all.css', array('bootstrap','raleway'));
+       
        /* jquery do stopki */
         wp_deregister_script( 'jquery' );
         wp_register_script('jquery', get_template_directory_uri() . '/js/query.js', false, '3.3.1',true);
