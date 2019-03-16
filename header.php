@@ -19,4 +19,22 @@
     </head>
 <body <?php body_class();?>>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="header-container text-center background-image" style="background-image: url(<?php header_image();?>)">
 
+                    <div class="header-content">
+                        <h1 class="sitle-title"><?php bloginfo('name');?></h1>
+                        <h2 class="sitle-description"><?php bloginfo('description');?></h2>
+                    </div> 
+
+                    <div class="nav-container">
+                
+                    </div>
+
+                </div> <!-- header-container -->
+
+          </div>  <!-- col-xs-12 -->
+        </div>  <!-- .row -->
+    </div> <!-- .container-fluid -->

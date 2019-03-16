@@ -1,0 +1,28 @@
+/*
+@package sebatheme
+*/
+
+/* general */
+.col{
+    padding: 0;
+}
+.background-image{
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Header  */
+
+.header-container {
+position: relative;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 350px;  
+} 
+
+.header-container h1,
+.header-container h2{
+color:white;
+}
