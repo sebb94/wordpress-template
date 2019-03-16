@@ -1,0 +1,49 @@
+/*
+@package sebatheme
+*/
+
+.seba-admin-container {
+    display: flex;
+}
+
+.seba-sidebar {
+
+    &-preview {
+        margin-right: 50px;
+        background-color: #1f1f1f;
+        padding: 20px;
+        text-align: center;
+    }
+
+    & h1,  
+    & h2 {
+        color: white;
+        font-weight: 100;
+    }
+}  
+
+#upload-button,
+.profile-button {
+    background-color: #1f1f1f;
+    color: #fff;
+    padding: 15px;
+    border-radius: 3px;
+    font-size: 18px;
+    transition: all .3s;
+    border: none;
+}
+
+#upload-button:hover {
+    transform: scale(1.1);
+}
+
+.profile-picture {
+    width: 122px;
+    height: 122px;
+    overflow: hidden;
+    border-radius: 500px;
+    margin: 20px auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

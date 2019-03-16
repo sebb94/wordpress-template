@@ -1,0 +1,24 @@
+{
+  "name": "seba-theme",
+  "version": "1.0.0",
+  "description": "My wordress template",
+  "main": "index.js",
+  "scripts": {
+    "saas:main": "node-sass saas/_main.scss css/seba.css  -w",
+    "saas:admin": "node-sass saas/_admin.scss css/seba_admin.css  -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebb94/wordpress-template.git"
+  },
+  "author": "Sebastian Gagor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sebb94/wordpress-template/issues"
+  },
+  "homepage": "https://github.com/sebb94/wordpress-template#readme",
+  "devDependencies": {
+    "node-sass": "^4.11.0"
+	
+  }
+}
