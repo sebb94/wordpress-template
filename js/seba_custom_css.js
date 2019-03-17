@@ -5,7 +5,10 @@
     }
 
     $('#save-custom-css-form').submit(updateCSS);
+
+     $('#cp2').colorpicker();
 })(jQuery)
 let editor = ace.edit("CSS_editor_custom");
 editor.setTheme("ace/theme/merbivore");
 editor.getSession().setMode("ace/mode/css");
+

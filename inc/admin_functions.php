@@ -73,12 +73,21 @@ function seba_custom_settings() {
 
     /* custom CSS Options */
     register_setting('seba-custom-css-options', 'seba_css', 'seba_sanitize_custom_css');
+    register_setting('seba-custom-css-options', 'seba_color_css');
     add_settings_section('seba-custom-css-section', 'Seba CSS', 'seba_custom_css_section_callback', 'css_options');
     add_settings_field('custom-css', 'Insert your Custom CSS', 'seba_custom_css_callback', 'css_options', 'seba-custom-css-section');
+    add_settings_field('custom-color', 'Background Color of Page', 'seba_custom_color_field', 'css_options', 'seba-custom-css-section');
 
 }
 
 /* CSS setting functions */
+function seba_custom_color_field(){
+    $seba = esc_attr(get_option('seba_color_css')); 
+    echo '<div id="cp2" class="input-group colorpicker-component">
+    <input type="text" name="seba_color_css" value="'. $seba . '" class="form-control" />
+    <span class="input-group-addon"><i></i></span>
+</div>';
+}
 
 function seba_custom_css_section_callback(){
     echo "Customize Seba Theme with Your Css";

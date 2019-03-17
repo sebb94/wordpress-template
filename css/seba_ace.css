@@ -7,3 +7,11 @@ position: relative;
 width: 500px;
 height: 400px;
 }
+
+.input-group-addon i{
+    width: 50px !important;
+    height: 40px !important;
+}
+#cp2{
+    width: 30% !important;
+}

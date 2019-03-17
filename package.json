@@ -2,23 +2,25 @@
   "name": "seba-theme",
   "version": "1.0.0",
   "description": "My wordress template",
-  "main": "index.js",
+  "main": "/js/admin_js.js",
+  "dependencies": {},
+  "devDependencies": {
+    "node-sass": "^4.11.0"
+  },
   "scripts": {
-    "saas:main": "node-sass saas/_main.scss css/seba.css  -w",
-    "saas:admin": "node-sass saas/_admin.scss css/seba_admin.css  -w"
+    "c:main": "node-sass sass/seba.scss css/seba.css",
+    "w:main": "nodemon -e scss -x \"npm run c:main\"",
+     "c:admin": "node-sass sass/admin.scss css/seba_admin.css",
+     "w:admin": "nodemon -e scss -x \"npm run c:admin\""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sebb94/wordpress-template.git"
   },
-  "author": "Sebastian Gagor",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/sebb94/wordpress-template/issues"
   },
-  "homepage": "https://github.com/sebb94/wordpress-template#readme",
-  "devDependencies": {
-    "node-sass": "^4.11.0"
-	
-  }
+  "homepage": "https://github.com/sebb94/wordpress-template#readme"
 }

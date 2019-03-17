@@ -32,12 +32,28 @@
                         <h2 class="site-description"><?php bloginfo('description');?></h2>
                     </div> 
 
-                    <div class="nav-container">
-                
-                    </div>
 
                 </div> <!-- header-container -->
-
+                 <div class="nav-container">
+                        <nav class="navbar navbar-expand-lg navbar-dark navbar-seba">
+                            <?php
+                                wp_nav_menu(array(
+                                    'theme_location' => 'primary_menu',
+                                    'container' => false,
+                                    'menu_class' => 'navbar-nav'
+                                ));
+                            ?>
+                        </nav>
+                </div> <!-- nav container -->
           </div>  <!-- col-xs-12 -->
         </div>  <!-- .row -->
+        <div class="row">
+
+            <div class="col-12">
+                            <p>sadsadsadsadsa</p>
+                            <p>adsdsadsadsadsa</p>
+          
+            </div> <!-- col-xs-12 -->
+
+        </div> <!-- .row -->
     </div> <!-- .container-fluid -->
