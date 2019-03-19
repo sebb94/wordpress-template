@@ -26,6 +26,7 @@ if(!empty($background) && $background == 1){
     add_theme_support('custom-background');
 }
 
+add_theme_support('post-thumbnails'); 
 /* Activate Nav Menu Options */
 
 function seba_register_nav_menu(){
@@ -33,3 +34,9 @@ function seba_register_nav_menu(){
 }
 
 add_action('after_setup_theme','seba_register_nav_menu');
+
+/* BLOG LOOP CUSTOM FUNCTION */
+
+function seba_posted_meta(){
+ return 'category name and publishing time';
+}
