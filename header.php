@@ -50,8 +50,7 @@
         <div class="row">
 
             <div class="col-12">
-                            <p>sadsadsadsadsa</p>
-                            <p>adsdsadsadsadsa</p>
+                   
           
             </div> <!-- col-xs-12 -->
 

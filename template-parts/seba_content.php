@@ -17,14 +17,12 @@
          
         </div>
     </header>
-    <?php 
-    var_dump(has_post_thumbnail());
-    ?>
+ 
     <div clsas="entry-content">
-        <?php echo "oi5"; if(has_post_thumbnail()): ?>
+        <?php if(has_post_thumbnail()): ?>
 
             <div class="standard-featured">  
-                <?php echo "oi6"; var_dump(the_post_thumbnail('medium'));?>
+                <?php the_post_thumbnail('medium');?>
 
             </div>
         <?php endif; ?>
@@ -33,27 +31,13 @@
             <?php the_excerpt();?>
         </div>
 
+        <div class="button-container">
+            <a href="<?php the_permalink();?>" class="btn btn-primary"><?php _e('Read More');?></a>
+        </div>
 
     </div><!-- .entry-content -->
+
+    <footer class="entry-footer">
+            <?php echo seba_posted_footer();?>
+    </footer>
 </article>
-<?php
-foreach((get_the_category()) as $category)
-    {
-    $postcat= $category->cat_ID;
-    $catname =$category->cat_name;
-    }
-?>
-<h2><?php echo $catname; ?></h2>
-<?php $categories = get_categories("child_of=$postcat");
-    foreach ($categories as $cat)
-    { ?>
-    <?php query_posts("cat=$cat->cat_ID&posts_per_page=-1"); ?>
-    <h3><?php single_cat_title(); ?></h3>
-    <?php while (have_posts()) : the_post(); ?>
-    <ul>
-        <li><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
-            <?php the_title(); ?></a>
-        </li>
-    </ul>
-    <?php endwhile; ?>
-    <?php } ?>

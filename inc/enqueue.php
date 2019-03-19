@@ -52,16 +52,16 @@ function seba_load_scripts(){
 add_action('wp_enqueue_scripts', 'seba_load_scripts');
 
 function my_styles_method() {
-    echo "funckjaa";
+   // echo "funckjaa";
   
     $color = esc_attr(get_option('seba_color_css')); 
-      echo $color;
+    //  echo $color;
  	wp_enqueue_style('custom-style',get_template_directory_uri() . '/css/seba_custom.css', array('bootstrap','raleway','seba','font-awesome'));
         $custom_css = "
                 body{
                         background-color: {$color};
                 }";
-                echo $custom_css;
+              //  echo $custom_css;
         wp_add_inline_style( 'custom-style', $custom_css );
 }
 add_action( 'wp_enqueue_scripts', 'my_styles_method' );
