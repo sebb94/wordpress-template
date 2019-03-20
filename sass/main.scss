@@ -3,12 +3,18 @@
 */
 
 /* general */
-
 * {
     font-family: 'Raleway', 'Helvetica Neue', 'Helvetica', Arial, Verdana, sans-serif;
 }
+a{
+    color: $color-primary;
+    &:hover,&:focus{
+        text-decoration: none; 
+        color: $dark-grey;
+    }
+}
 
-[class^=col] {
+[class^=col] { 
     padding: 0;
 }
 
@@ -42,10 +48,10 @@
   }
 }  
 
-/* menu */ 
 
  /* article */
 
  article{ 
-     padding: 50px 0;
+     margin-bottom: 50px;
+
  }
