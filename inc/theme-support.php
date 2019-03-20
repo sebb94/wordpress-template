@@ -75,7 +75,7 @@ function seba_posted_footer(){
                 <div class="col-sm-6">
                     '. get_the_tag_list('<div class="tags-list"><i class="fa fa-tag" aria-hidden="true"></i>', ' ', '</div>') .'
                 </div>
-                 <div class="col-sm-6">
+                 <div class="col-sm-6 text-right">
                     '. $comments .'
                 </div>
              </div>

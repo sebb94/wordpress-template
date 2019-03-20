@@ -7,9 +7,9 @@
 ?>
 
 <article id="post-<?php the_ID();?>" <?php post_class();?>>
-    <header class="entry-header">
+    <header class="entry-header text-center">
 
-        <?php the_title('<h1 class="entry-title">', '</h1>');?>
+        <?php the_title('<h1 class="entry-title"><a href="'. esc_url( get_permalink()) . '" rel="bookmark">', '</a></h1>');?>
 
         <div class="entry-meta">
 
@@ -19,20 +19,20 @@
     </header>
  
     <div clsas="entry-content">
-        <?php if(has_post_thumbnail()): ?>
-
-            <div class="standard-featured">  
-                <?php the_post_thumbnail('medium');?>
-
-            </div>
+        <?php if(has_post_thumbnail()): 
+           $image_url = get_the_post_thumbnail_url();
+        ?>
+            <a class="standard-featured-link" href="<?php the_permalink();?>"> 
+            <div class="standard-featured background-image" style="background-image:url(<?php echo $image_url;?>)"> </div>
+        </a>
         <?php endif; ?>
     
         <div class="entry-excerpt">
             <?php the_excerpt();?>
         </div>
 
-        <div class="button-container">
-            <a href="<?php the_permalink();?>" class="btn btn-primary"><?php _e('Read More');?></a>
+        <div class="button-container text-center">
+            <a href="<?php the_permalink();?>" class="btn btn-deafult btn-seba"><?php _e('Read More');?></a>
         </div>
 
     </div><!-- .entry-content -->
