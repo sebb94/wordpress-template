@@ -81,3 +81,25 @@ function seba_posted_footer(){
              </div>
         </div>';
 }
+function seba_get_attachments(){
+
+        $image_url = "";
+        if( has_post_thumbnail() ): 
+            $image_url = get_the_post_thumbnail_url();
+        else:
+              $attachments = get_posts(array(
+                 'post_type' => 'attachment',
+                 'posts_per_page' => 1,
+                 'post_parent' => get_the_ID() 
+                 
+            ));
+            if( $attachments ):
+                foreach($attachments as $attachment):
+                    $image_url = wp_get_attachment_url($attachment->ID);
+                endforeach;
+        endif;
+
+        wp_reset_post_data();
+    endif;
+    return $image_url;
+} 
