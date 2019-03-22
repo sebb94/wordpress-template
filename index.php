@@ -15,8 +15,8 @@ get_header();
           
                 while( have_posts() ) :the_post();
                
-                get_template_part('template-parts/seba_content', get_post_format());
-                
+                get_template_part('template-parts/seba-content', get_post_format());
+               //  get_template_part('template-parts/seba_content_image', get_post_format('image'));
             endwhile;
             endif;
 
