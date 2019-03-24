@@ -19,6 +19,7 @@
     </header>
  
     <div clsas="entry-content">
+   
         <?php if(seba_get_attachments()):?>
             <a class="standard-featured-link" href="<?php the_permalink();?>"> 
             <div class="standard-featured background-image" style="background-image:url(<?php echo seba_get_attachments();?>)"> </div>

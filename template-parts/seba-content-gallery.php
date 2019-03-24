@@ -22,9 +22,9 @@ Gallery format
                 <?php 
         $i = 0;
         foreach ($attachments as $attachment):
-            $active = ($i == 0 ? 'active' : '');
+            $active = ($i == 0 ? ' active ' : ' ');
             ?>
-                <div class="carousel-item <?php echo $active?> background-image standard-featured"
+                <div class="carousel-item<?php echo $active;?>background-image standard-featured"
                     style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );?>);"> </div>
 
               
@@ -36,7 +36,7 @@ Gallery format
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="carousel-control-next" href="#post-<?php the_ID();?>" role="button" data-slide="next">
+  <a class="carousel-control-next" href="#post-gallery-<?php the_ID();?>" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
