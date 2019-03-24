@@ -9,7 +9,7 @@ h1 {
 
     &.entry-title {
         line-height: 1.5em;
-        margin: 50px 0 5px 0;
+        margin: 10px 0 5px 0;
         padding: 0;
 
         &:before,
@@ -209,18 +209,33 @@ h1 {
         height: 166px;
     }
 }
+
 /* Video post format */
 
-.seba-format-video{
-    & header{
-        margin-top: 40px;
+.seba-format-video {
+    & header {
 
-        &.entry-title {
-            margin-top: 40px;
 
+        &.entry-title {}
+    }
+}
+
+/* gallery */
+
+.seba-format-gallery {
+    & header {
+        h1 {
+            &.entry-title {
+                margin-top: 20px;
+            }
         }
     }
 
+    & .standard-featured {
+        height: 500px;
 
-
-}
+        &:after {
+            background-color: transparent;
+        }
+    }
+}  

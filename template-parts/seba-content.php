@@ -19,11 +19,9 @@
     </header>
  
     <div clsas="entry-content">
-        <?php if(has_post_thumbnail()): 
-           $image_url = get_the_post_thumbnail_url();
-        ?>
+        <?php if(seba_get_attachments()):?>
             <a class="standard-featured-link" href="<?php the_permalink();?>"> 
-            <div class="standard-featured background-image" style="background-image:url(<?php echo $image_url;?>)"> </div>
+            <div class="standard-featured background-image" style="background-image:url(<?php echo seba_get_attachments();?>)"> </div>
         </a>
         <?php endif; ?>
     

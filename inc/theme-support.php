@@ -81,27 +81,31 @@ function seba_posted_footer(){
              </div>
         </div>';
 }
-function seba_get_attachments(){
+function seba_get_attachments( $num = 1){
 
-        $image_url = "";
-        if( has_post_thumbnail() ): 
-            $image_url = get_the_post_thumbnail_url();
-        else:
-              $attachments = get_posts(array(
-                 'post_type' => 'attachment',
-                 'posts_per_page' => 1,
-                 'post_parent' => get_the_ID() 
-                 
-            ));
-            if( $attachments ):
-                foreach($attachments as $attachment):
-                    $image_url = wp_get_attachment_url($attachment->ID);
-                endforeach;
-        endif;
+	$output = '';
+	if( has_post_thumbnail() && $num == 1 ): 
+		$output = wp_get_attachment_url( get_post_thumbnail_id( get_the_ID() ) );
+	else:
+		$attachments = get_posts( array( 
+			'post_type' => 'attachment',
+			'posts_per_page' => $num,
+			'post_parent' => get_the_ID()
+		) );
+		if( $attachments && $num == 1 ):
+            foreach ( $attachments as $attachment ):
+                
+				$output = wp_get_attachment_url( $attachment->ID );
+			endforeach;
+		elseif( $attachments && $num > 1 ):
+			$output = $attachments;
+		endif;
+		
+		wp_reset_postdata();
+		
+	endif;
 
-        wp_reset_post_data();
-    endif;
-    return $image_url;
+	return $output;
 } 
 
 function seba_get_embeded_media($type = array()){
