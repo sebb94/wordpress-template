@@ -100,7 +100,6 @@ h1 {
 
 .standard-featured {
   min-height: 350px;
-  display: block;
   position: relative; }
   .standard-featured:after {
     content: "";

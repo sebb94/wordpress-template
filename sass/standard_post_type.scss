@@ -63,7 +63,7 @@ h1 {
 
 .standard-featured {
     min-height: 350px;
-    display: block;
+    //display: block;
     position: relative;
 
     &:after {
@@ -233,6 +233,7 @@ h1 {
 
     & .standard-featured {
         height: 500px;
+    
 
         &:after {
             background-color: transparent;
