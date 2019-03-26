@@ -9,7 +9,7 @@ h1 {
 
     &.entry-title {
         line-height: 1.5em;
-        margin: 50px 0 5px 0;
+        margin: 10px 0 5px 0;
         padding: 0;
 
         &:before,
@@ -63,7 +63,7 @@ h1 {
 
 .standard-featured {
     min-height: 350px;
-    display: block;
+    //display: block;
     position: relative;
 
     &:after {
@@ -208,4 +208,101 @@ h1 {
         width: 100%;
         height: 166px;
     }
+}
+
+/* Video post format */
+
+.seba-format-video {
+    & header {
+
+
+        &.entry-title {}
+    }
+}
+
+/* gallery */
+
+.seba-format-gallery {
+    & header {
+        h1 {
+            &.entry-title {
+                margin-top: 20px;
+            }
+        }
+    }
+
+    & .standard-featured {
+        height: 500px;
+
+        &:after {
+            background-color: transparent;
+        }
+    }
+
+    & .carousel-control {
+        background: none;
+        background-image: none;
+        opacity: 1;
+        filter: alpha(opacity=100);
+        font-size: 30px;
+        width: auto;
+        @extend %text-shadow;
+
+        & .preview-container {
+            display: block;
+            padding: 20px;
+            background-color: rgba($color: #000000, $alpha: 0.0);
+            @include animate(background-color, 320ms);
+            line-height: 0;
+            position: relative;
+
+            & .thumbnail-container {
+                position: absolute;
+                display: block;
+                height: 58px; 
+                width: 58px;
+                border-radius: 50%;
+            
+                top:1px;
+                @include animate(transform, 320ms);
+                @include transform(scale(0));
+            }
+        }
+
+        &.right {
+
+            & .preview-container {
+                padding-left: 80px;
+                border-radius: 29px 0 0 29px;
+                   & .thumbnail-container {
+                    left: 1px;
+                   }
+            }
+        }
+
+        &.left {
+            & .preview-container {
+                padding-right: 80px;
+                border-radius: 0 29px 29px 0;
+
+                  & .thumbnail-container {
+                    right: 1px;
+                  }
+            }
+
+        }
+         &:hover {
+             & .preview-container{
+                 background-color: rgba($color: #000000, $alpha: 0.8);
+
+                 & .thumbnail-container {
+                     @include transform(scale(1));
+                 }
+             }
+         }
+    }
+
+   
+
+
 }
