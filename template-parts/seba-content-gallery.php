@@ -15,34 +15,52 @@ Gallery format
       
         ?>
 
-        <div id="post-gallery-<?php the_ID();?>" class="carousel slide" data-ride="carousel" data-interval="3000">
+        <div id="post-gallery-<?php the_ID();?>" class="carousel slide seba-carousel-thumb" data-ride="carousel" data-interval="3000">
 
             <div class="carousel-inner">
 
                 <?php 
-        $i = 0;
-        foreach ($attachments as $attachment):
-            $active = ($i == 0 ? ' active ' : ' ');
-            ?>
-                <div class="carousel-item<?php echo $active;?>background-image standard-featured"
-                    style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );?>);"> </div>
+                $count = count($attachments)-1;
+                for ($i = 0; $i <= $count; $i++):
 
+                    $active = ($i == 0 ? ' active ' : ' ');
+                    $n = ( $i == $count ? 0 : $i+1);
+                    $nextImg = wp_get_attachment_thumb_url($attachments[$n]->ID);
+                    $p = ( $i == 0 ? $count : $i-1);
+                    $prevImg = wp_get_attachment_thumb_url($attachments[$p]->ID);
+            ?>
+
+                <div class="carousel-item<?php echo $active;?>background-image standard-featured" style="background-image:url(<?php echo wp_get_attachment_url( $attachments[$i]->ID );?>);"> 
+  <div class="hide next-image-preview" data-image="<?php echo $nextImg?>"></div>
+                 <div class="hide prev-image-preview" data-image="<?php echo $prevImg?>"></div>
+                </div>
               
-              <?php $i++; endforeach;?>
-            </div>
-      <a class="carousel-control-prev" href="#post-gallery-<?php the_ID();?>" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#post-gallery-<?php the_ID();?>" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+                <?php endfor;?>
+            </div> <!-- caoursel inner -->
+
+            <a class="carousel-control-prev carousel-control left" href="#post-gallery-<?php the_ID();?>" role="button"
+                data-slide="prev">
+                <div class="preview-container">
+                <span class="thumbnail-container"></span>
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+                </div>
+            </a>
+       
+
+            <a class="carousel-control-next carousel-control right" href="#post-gallery-<?php the_ID();?>" role="button" data-slide="next">
+              <div class="preview-container">
+                  <span class="thumbnail-container"></span>
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+        </div>
+            </a>
+
         </div> <!-- carousel -->
 
 
 
-      
+
 
         <?php endif; ?>
 
