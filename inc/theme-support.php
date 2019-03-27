@@ -126,7 +126,7 @@ function seba_get_embeded_media($type = array()){
 }
 
 function seba_get_bs_slides($attachments){
-
+   
     $output = array();
     $count = count($attachments)-1;
     for ($i = 0; $i <= $count; $i++):
