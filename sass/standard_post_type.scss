@@ -230,7 +230,30 @@ h1 {
             }
         }
     }
+     &:hover {
+         & .entry-excerpt {
+             &.image-caption {
 
+                 @include transform(translateY(0%));
+             }
+         }
+     }
+       & .entry-excerpt {
+           &.image-caption {
+               @extend %background-gradient;
+               position: absolute;
+               color: #fff;
+               padding: 30px;
+               bottom: 0;
+               display: block;
+               width: 100%;
+               text-align: center;
+               @include animate(transform,320ms);
+               @include transform(translateY(100%));
+           }
+       }
+
+  
     & .standard-featured {
         height: 500px;
 
@@ -298,11 +321,8 @@ h1 {
                  & .thumbnail-container {
                      @include transform(scale(1));
                  }
-             }
+                }
          }
+         
     }
-
-   
-
-
 }

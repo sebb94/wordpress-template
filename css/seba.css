@@ -6,6 +6,16 @@
 .seba-format-image .entry-meta, .seba-format-gallery .carousel-control {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4); }
 
+.seba-format-gallery .entry-excerpt.image-caption {
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.9) 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.9) 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.9) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=0);
+  /* IE6-9 */ }
+
 /*
 @package sebatheme
 */
@@ -206,6 +216,32 @@ h1 {
 /* gallery */
 .seba-format-gallery header h1.entry-title {
   margin-top: 20px; }
+
+.seba-format-gallery:hover .entry-excerpt.image-caption {
+  -webkit-transform: translateY(0%);
+  -moz-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  -o-transform: translateY(0%);
+  transform: translateY(0%); }
+
+.seba-format-gallery .entry-excerpt.image-caption {
+  position: absolute;
+  color: #fff;
+  padding: 30px;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  text-align: center;
+  -webkit-transition: transform 320ms ease;
+  -moz-transition: transform 320ms ease;
+  -ms-transition: transform 320ms ease;
+  -o-transition: transform 320ms ease;
+  transition: transform 320ms ease;
+  -webkit-transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  -o-transform: translateY(100%);
+  transform: translateY(100%); }
 
 .seba-format-gallery .standard-featured {
   height: 500px; }

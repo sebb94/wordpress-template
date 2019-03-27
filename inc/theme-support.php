@@ -124,3 +124,26 @@ function seba_get_embeded_media($type = array()){
         endif;
                return $output;
 }
+
+function seba_get_bs_slides($attachments){
+
+    $output = array();
+    $count = count($attachments)-1;
+    for ($i = 0; $i <= $count; $i++):
+
+            $active = ($i == 0 ? ' active ' : ' ');
+            $n = ( $i == $count ? 0 : $i+1);
+            $nextImg = wp_get_attachment_thumb_url($attachments[$n]->ID);
+            $p = ( $i == 0 ? $count : $i-1);
+            $prevImg = wp_get_attachment_thumb_url($attachments[$p]->ID);
+            $output[$i] = array(
+                'class'     => $active,
+                'url'       => wp_get_attachment_url( $attachments[$i]->ID ),
+                'next_img'  => $nextImg,
+                'prev_img'  => $prevImg,
+                'exceprt'   => $attachments[$i]->post_excerpt
+                );
+         endfor;
+
+         return $output;
+}
