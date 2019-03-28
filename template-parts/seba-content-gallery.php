@@ -17,7 +17,7 @@ Gallery format
                 <?php 
 
                 $attachments = seba_get_bs_slides( seba_get_attachments(7) );
-                var_dump($attachments);
+           
                 foreach ($attachments as $attachment):
                     ?>
             
