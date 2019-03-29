@@ -366,3 +366,42 @@ h1 {
         letter-spacing:2px;
     }
 }
+
+/* link post format */ 
+
+.seba-format-link{
+
+        border-bottom: 2px dashed #1c86d4;
+        border-top: 2px dashed #1c86d4;
+        margin: 40px 0;
+        & .entry-title{
+
+            & a{
+                display: block;
+            }
+            &:before,
+            &:after {
+                content: "~";
+                display: none;
+            }
+
+            & .link-icon{
+                background: #333;
+                display: flex;
+                width: 50px;
+                height: 50px;
+                border-radius: 50px;
+                justify-content: center;
+                align-items: center;
+                margin: 0 auto;
+
+                & .fa.fa-link{
+                        font-size: 30px;
+                        color: #fff;
+                }
+
+            }
+        }
+
+     
+}
