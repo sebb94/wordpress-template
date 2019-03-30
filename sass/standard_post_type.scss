@@ -402,6 +402,27 @@ h1 {
 
             }
         }
+    }
 
-     
+/* aside post format */
+
+.seba-format-aside{
+    & .aside-container{
+        background-color: rgba(0, 0, 0, 0.075);
+        padding-top: 20px;
+    }
+  
+    & .aside-featured{
+    width: 80%;
+    height: 143px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+    }
+
+    & .entry-excerpt{
+        margin: 2px;
+    }
+
 }
+    
