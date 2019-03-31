@@ -1,3 +1,9 @@
+@keyframes spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+
 /*
 @package placeholders
 */
@@ -59,6 +65,34 @@ a {
 article {
   padding-top: 40px;
   padding-bottom: 40px; }
+
+/* load more */
+.btn-seba-load {
+  display: block;
+  width: 200px;
+  color: #222;
+  font-size: 30px;
+  margin: 0 auto;
+  cursor: pointer;
+  opacity: 0.5;
+  -webkit-transition: opacity 320ms ease;
+  -moz-transition: opacity 320ms ease;
+  -ms-transition: opacity 320ms ease;
+  -o-transition: opacity 320ms ease;
+  transition: opacity 320ms ease; }
+  .btn-seba-load span {
+    display: block; }
+  .btn-seba-load:hover, .btn-seba-load:focus, .btn-seba-load.loading {
+    opacity: 1;
+    cursor: pointer; }
+  .btn-seba-load.loading {
+    cursor: default; }
+
+.spin {
+  animation-name: spin;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; }
 
 .navbar-seba {
   justify-content: center;

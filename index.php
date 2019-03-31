@@ -26,8 +26,17 @@ get_header();
         </div>
 
         <div class="container text-center">
-            <a class="btn btn-lg btn-info seba-load-more" data-page="1" data-url="<?php echo admin_url('admin-ajax.php')?>"><i class="fa fa-spinner fa-spin fa-1x fa-fw"></i>
-<span class="sr-only">Loading...</span> Load more</a> 
+            <a class="btn-seba-load seba-load-more" data-page="1" data-url="<?php echo admin_url('admin-ajax.php')?>">
+            <span class="load-more-icon-container">
+            <i class="fa fa-spinner"></i>
+            <span class="sr-only">Loading...</span> 
+                </span>
+                <span class="text">
+      Load more
+                </span>
+      
+        
+        </a> 
         
         </div>
     </main>

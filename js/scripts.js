@@ -35,13 +35,15 @@ $('.carousel').carousel();
 
     /* Ajax Functions */
 
-    $(document).on('click', '.seba-load-more', function () {
+    $(document).on('click', '.seba-load-more:not(.loading)', function () {
 
         let that = $(this);
         let page = $(this).data('page');
         let newPage = page+1;
         let ajaxurl = $(this).data('url');
         
+        that.addClass('loading').find('.text').slideUp(320);
+        that.find('.load-more-icon-container i').addClass('spin');
         console.log(page);
 
         $.ajax({
@@ -59,6 +61,12 @@ $('.carousel').carousel();
             success : function( response ){
                 that.data('page',newPage);
                 $('.seba-post-container').append(response);
+
+                setTimeout(function(){
+                that.removeClass('loading').find('.text').slideDown(320);
+                that.find('.load-more-icon-container i').removeClass('spin');
+                } ,2000 );
+            
 
             }
         });
