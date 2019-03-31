@@ -367,3 +367,9 @@ h1 {
 
 .seba-format-aside .entry-excerpt {
   margin: 2px; }
+
+.seba-footer {
+  background: #ccc;
+  color: white;
+  margin-top: 40px;
+  padding: 20px; }
