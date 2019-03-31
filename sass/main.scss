@@ -58,3 +58,37 @@ a{
      padding-bottom: 40px;
 
  }
+
+ /* load more */ 
+
+ .btn-seba-load{
+     display: block;
+     width: 200px;
+     color: #222;
+     font-size: 30px;
+     margin: 0 auto;
+    cursor: pointer;
+    opacity: 0.5;
+    @include animate( opacity, 320ms);
+
+    & span{
+        display: block;
+    }
+    &:hover,
+    &:focus,
+    &.loading{
+        opacity: 1;
+         cursor: pointer;
+    }
+
+      &.loading {
+          cursor: default;
+      }
+ }
+
+ .spin{
+     animation-name: spin;
+     animation-duration: 1000ms;
+     animation-iteration-count: infinite;
+     animation-timing-function: linear;
+ }

@@ -9,7 +9,7 @@ get_header();
 
 <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-        <div class="container">
+        <div class="container seba-post-container">
         <?php 
             if( have_posts()):
           
@@ -23,6 +23,21 @@ get_header();
 
 
         ?>        
+        </div>
+
+        <div class="container text-center">
+            <a class="btn-seba-load seba-load-more" data-page="1" data-url="<?php echo admin_url('admin-ajax.php')?>">
+            <span class="load-more-icon-container">
+            <i class="fa fa-spinner"></i>
+            <span class="sr-only">Loading...</span> 
+                </span>
+                <span class="text">
+      Load more
+                </span>
+      
+        
+        </a> 
+        
         </div>
     </main>
 </div>
