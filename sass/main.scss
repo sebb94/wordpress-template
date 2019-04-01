@@ -92,3 +92,18 @@ a{
      animation-iteration-count: infinite;
      animation-timing-function: linear;
  }
+
+ .seba-posts-container{
+
+    article{
+        @include animate(all, 320ms);
+        @include transform(translateY(100px));
+        opacity: 0;
+
+        &.reveal{
+              @include animate(all, 320ms);
+              @include transform(translateY(0px));
+              opacity: 1;
+        }
+    } 
+ } 
