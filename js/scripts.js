@@ -1,6 +1,6 @@
 (function ($) {
 $('.carousel').carousel();
-
+    revealPosts();
 
         // $(document).on('mouseenter','.carousel-control-next',function (){
             
@@ -21,10 +21,10 @@ $('.carousel').carousel();
 
 
         $(carousel).each(function(){
-
+            console.log('asd');
             var nextThumb = $(this).find('.carousel-item.active').find('.next-image-preview').data('image');
             var prevThumb = $(this).find('.carousel-item.active').find('.prev-image-preview').data('image');
-           // console.log(nextThumb);
+            console.log(nextThumb);
             $(this).find('.carousel-control-next').find('.thumbnail-container').css({
                 'background-image': 'url(' + nextThumb + ')'});
             $(this).find('.carousel-control-prev').find('.thumbnail-container').css({
@@ -59,12 +59,18 @@ $('.carousel').carousel();
                 console.log(response);
             },
             success : function( response ){
-                that.data('page',newPage);
-                $('.seba-post-container').append(response);
+  
+                setTimeout(function () {
+                    that.data('page', newPage);
+                    $('.seba-posts-container').append(response);
+                    that.removeClass('loading').find('.text').slideDown(320);
+                    that.find('.load-more-icon-container i').removeClass('spin');
+                    var carousel = ".seba-carousel-thumb";
+                    $(carousel).on('slid.bs.carousel', function () {
+                        seba_get_bs_thumbs(carousel);
+                    });
+                    revealPosts();
 
-                setTimeout(function(){
-                that.removeClass('loading').find('.text').slideDown(320);
-                that.find('.load-more-icon-container i').removeClass('spin');
                 } ,2000 );
             
 
@@ -73,6 +79,23 @@ $('.carousel').carousel();
 
     }); 
 
+
+    /* helper functions */
+function revealPosts(){
+
+    var posts = $('article:not(.reveal)');
+    var i = 0;
+    setInterval(function(){
+
+        if(i >= posts.length)
+            return false;
+
+        var el = posts[i]; 
+        $(el).addClass('reveal').find('.seba-carousel-thumb').carousel();
+        i++;
+    }, 200);
+
+}
 
 
 })(jQuery)
