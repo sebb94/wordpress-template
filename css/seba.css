@@ -66,10 +66,10 @@ article {
   padding-top: 40px;
   padding-bottom: 40px; }
 
-/* load more */
+/* load more - ajax */
 .btn-seba-load {
   display: block;
-  width: 200px;
+  width: 250px;
   color: #222;
   font-size: 30px;
   margin: 0 auto;
@@ -118,6 +118,9 @@ article {
     -o-transform: translateY(0px);
     transform: translateY(0px);
     opacity: 1; }
+
+.container-load-previous {
+  margin-top: 40px; }
 
 .navbar-seba {
   justify-content: center;

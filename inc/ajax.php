@@ -11,8 +11,11 @@ add_action('wp_ajax_seba_load_more', 'seba_load_more');
 function seba_load_more(){
     // load more post
         $paged = $_POST['page']+1;
-     
+        $prev = $_POST['prev'];
 
+        if ($prev == 1 && $_POST["page"] != 1){
+            $paged =  $_POST['page']-1;
+        }
         $query = new WP_Query(array(
             'post_type' => 'post', 
             'post_status' => 'publish',
@@ -29,6 +32,9 @@ function seba_load_more(){
             endwhile;
 
             echo '</div>';
+ 
+        else:
+            echo 0;
             endif;
             wp_reset_postdata();
         die();
