@@ -9,15 +9,33 @@ get_header();
 
 <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
+
+    <?php if ( is_paged() ): ?>
+           <div class="container text-center container-load-previous">
+            <a class="btn-seba-load seba-load-more" data-prev="1" data-page="<?php echo seba_check_paged(1)?>" data-url="<?php echo admin_url('admin-ajax.php')?>">
+            <span class="load-more-icon-container"> 
+            <i class="fa fa-spinner"></i>
+            <span class="sr-only">Loading...</span> 
+                </span>
+                <span class="text">
+                Load previous
+                </span>
+      
+        </a> 
+        </div>
+
+        <?php endif; ?>
         <div class="container seba-posts-container">
         <?php 
             if( have_posts()):
-          
+                echo '<div class="page-limit" data-page="/'. seba_check_paged() .'">';
                 while( have_posts() ) :the_post();
                
                 get_template_part('template-parts/seba-content', get_post_format());
                //  get_template_part('template-parts/seba_content_image', get_post_format('image'));
             endwhile;
+                echo '</div>';
+
             endif;
 
 
@@ -26,13 +44,13 @@ get_header();
         </div>
 
         <div class="container text-center">
-            <a class="btn-seba-load seba-load-more" data-page="1" data-url="<?php echo admin_url('admin-ajax.php')?>">
+            <a class="btn-seba-load seba-load-more" data-page="<?php echo seba_check_paged(1)?>" data-url="<?php echo admin_url('admin-ajax.php')?>">
             <span class="load-more-icon-container">
             <i class="fa fa-spinner"></i>
             <span class="sr-only">Loading...</span> 
                 </span>
                 <span class="text">
-      Load more
+            Load more
                 </span>
       
         
