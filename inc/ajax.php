@@ -12,19 +12,35 @@ function seba_load_more(){
     // load more post
         $paged = $_POST['page']+1;
         $prev = $_POST['prev'];
+        $archive = $_POST['archive'];
+
 
         if ($prev == 1 && $_POST["page"] != 1){
             $paged =  $_POST['page']-1;
         }
-        $query = new WP_Query(array(
+
+        $args = array(
             'post_type' => 'post', 
             'post_status' => 'publish',
             'paged' => $paged
+        );
 
-        ) );
+        if ($archive != '0'){
+            $archVal = explode('/',$archive);
+
+            $type = ( $archVal[1] == "category" ? "category_name" : $archVal[1]);
+            $args[ $type ] = $archVal[2];
+
+            $page_trail = "/" . $archVal[1] . "/" . $archVal[2] . "/";
+        }
+
+        else{
+            $page_trail = "/";
+        }
+        $query = new WP_Query($args);
 
            if( $query->have_posts()):
-            echo '<div class="page-limit" data-page="/page/'. $paged .'">';
+            echo '<div class="page-limit" data-page="'. $page_trail . 'page/'. $paged .'">';
                 while( $query->have_posts() ) : $query->the_post();
                
                 get_template_part('template-parts/seba-content', get_post_format());

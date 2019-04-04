@@ -41,9 +41,13 @@
         let newPage = page + 1;
         let ajaxurl = $(this).data('url');
         let prev = that.data('prev');
+        let archive = that.data('archive');
         alert(prev);
         if (typeof prev === 'undefined') {
             prev = 0;
+        }
+        if (typeof archive === 'undefined') {
+            archive = 0;
         }
 
         that.addClass('loading').find('.text').slideUp(320);
@@ -57,6 +61,7 @@
             data: {
 
                 page: page,
+                archive: archive,
                 prev: prev,
                 action: 'seba_load_more'
             },
