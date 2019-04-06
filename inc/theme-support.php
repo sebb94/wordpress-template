@@ -156,3 +156,10 @@ function seba_grab_url(){
     return esc_url_raw($links[1]);
 
 }
+function seba_grab_current_url(){
+   $http = ( isset( $_SERVER['HTTS']) ? 'https://' : 'http://' );
+        $referer =  $http .  $_SERVER["HTTP_HOST"];
+        $archive_url =  $referer .  $_SERVER["REQUEST_URI"];
+        return $archive_url;
+}
+     
