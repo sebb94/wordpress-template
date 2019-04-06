@@ -26,52 +26,45 @@ function seba_load_more(){
         );
 
         if ($archive != '0'){
-            $archVal = explode('/',$archive);
-            if( in_array('category', $archVal) ){
+            $archVal = explode( '/', $archive );
+            $flipped = array_flip( $archVal );
 
-                $type = "category_name";
-                $currKey = array_keys($archVal,"category");
-                $nextKey = $currKey[0]+1;
-                $value = $archVal [$nextKey];
-                $args[ $type ] = $value;
+                if( isset( $flipped["category"] ) || isset( $flipped["tag"] ) || isset( $flipped["author"] ) ){
+                        if( isset( $flipped['category']) ){
+                            $type = "category_name";
+                            $key = "category";
+                        }elseif (isset( $flipped['tag'] )) {
+                            $type = "tag";
+                            $key = $type;
 
-            }
-               if( in_array('tag', $archVal) ){
+                        }elseif(isset( $flipped['author'] )){
+                            $type = "author";
+                            $key = $type;
+                        }
+                        $currKey = array_keys($archVal,"category");
+                        $nextKey = $currKey[0]+1;
+                        $value = $archVal [$nextKey];
+                        $args[ $type ] = $value;
+                    }
+                
 
-                $type = "tag";
-                $currKey = array_keys($archVal,"tag");
-                $nextKey = $currKey[0]+1;
-                $value = $archVal [$nextKey];
-                $args[ $type ] = $value;
+                    if (in_array("page", $archVal)){
+                    $pageVal = explode('page', $archive);
+                    $page_trail = $pageVal[0];
 
-            }
-     if( in_array('author', $archVal) ){
-
-                $type = "author";
-                $currKey = array_keys($archVal,"author");
-                $nextKey = $currKey[0]+1;
-                $value = $archVal [$nextKey];
-                $args[ $type ] = $value;
-
-            }
-
-            if (in_array("page", $archVal)){
-            $pageVal = explode('page', $archive);
-            $page_trail = $pageVal[0];
-
-            }  else{
-                    $page_trail = $archive;
-                }
+                    }  else{
+                            $page_trail = $archive;
+                        }
             
             /*
             $type = ( $archVal[1] == "category" ? "category_name" : $archVal[1]);
             $args[ $type ] = $archVal[2];
             $page_trail = "/" . $archVal[1] . "/" . $archVal[2] . "/";
             */
-    }
-    else{
-        $page_trail = "/";
-    }
+        }
+        else{
+            $page_trail = "/";
+        }
 
       
         $query = new WP_Query($args);
@@ -109,6 +102,4 @@ $output = '';
     }else{
         return $output;
     }
-
-
 }
