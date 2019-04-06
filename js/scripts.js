@@ -42,7 +42,7 @@
         let ajaxurl = $(this).data('url');
         let prev = that.data('prev');
         let archive = that.data('archive');
-        alert(prev);
+        //alert(prev);
         if (typeof prev === 'undefined') {
             prev = 0;
         }
@@ -70,7 +70,7 @@
             },
             success: function (response) {
 
-                alert(response);
+              //  alert(response);
 
                 if (response == 0) {
                     $('.seba-posts-container').append('<div class="text-center"><h3>No more posts to load!</h3></div>');

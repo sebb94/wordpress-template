@@ -17,7 +17,7 @@ get_header();
               
     <?php if ( is_paged() ): ?>
            <div class="container text-center container-load-previous">
-            <a class="btn-seba-load seba-load-more" data-prev="1" data-page="<?php echo seba_check_paged(1)?>" data-url="<?php echo admin_url('admin-ajax.php')?>" data-archive="<?php echo $_SERVER["REQUEST_URI"]?>">
+            <a class="btn-seba-load seba-load-more" data-prev="1" data-page="<?php echo seba_check_paged(1)?>" data-url="<?php echo admin_url('admin-ajax.php')?>" data-archive="<?php echo seba_grab_current_url();?>">
             <span class="load-more-icon-container"> 
             <i class="fa fa-spinner"></i>
             <span class="sr-only">Loading...</span> 
@@ -50,8 +50,9 @@ get_header();
         ?>        
         </div>
 
+  
         <div class="container text-center">
-            <a class="btn-seba-load seba-load-more" data-page="<?php echo seba_check_paged(1)?>" data-url="<?php echo admin_url('admin-ajax.php')?>" data-archive="<?php echo $_SERVER["REQUEST_URI"]?>">
+            <a class="btn-seba-load seba-load-more" data-page="<?php echo seba_check_paged(1)?>" data-url="<?php echo admin_url('admin-ajax.php')?>" data-archive="<?php echo seba_grab_current_url();?>">
             <span class="load-more-icon-container">
             <i class="fa fa-spinner"></i>
             <span class="sr-only">Loading...</span> 
