@@ -15,6 +15,56 @@
           font-weight: 500;
       }
 
+      & a,
+      & .seba-tooltip,
+      & .seba-popover{
+        color: #f58800;
+          font-weight: 700;
+          cursor: pointer;
+
+          &:hover, 
+          &:focus{
+               color: #f95800;
+          }
+      }
+
+
     }
 }
+.single-post{
 
+    & .post-navigation .nav-links{
+        display:flex;
+        justify-content:space-between; 
+
+        & a{
+            color: #f58800;
+            margin: 0 10px;
+              &:hover, 
+          &:focus{
+               color: #f95800;
+          }
+        }
+        & .nav-previous{
+            &::before{
+                position: relative;
+                content: "<<";
+                display:inline-block;
+                height:19px;
+                width:19px;
+                font-weight: 700;
+            }
+        }
+         & .nav-next {
+               &::after {
+                   position: relative;
+                   content: ">>";
+                   display: inline-block;
+                   height: 19px;
+                   width: 19px;
+                   font-weight: 700;
+               }
+           
+        }
+    }
+}

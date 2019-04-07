@@ -3,6 +3,7 @@
     /* init functions */
     $('.carousel').carousel();
     revealPosts();
+  
 
     /* variables */
     var carousel = ".seba-carousel-thumb";
@@ -152,7 +153,8 @@
 
     /* helper functions */
     function revealPosts() {
-
+        $('[data-toggle="tooltip"]').tooltip();
+         $('[data-toggle="popover"]').popover();
         var posts = $('article:not(.reveal)');
         var i = 0;
         setInterval(function () {
