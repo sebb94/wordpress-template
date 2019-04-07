@@ -29,32 +29,33 @@ function seba_load_more(){
             $archVal = explode( '/', $archive );
             $flipped = array_flip( $archVal );
 
-                if( isset( $flipped["category"] ) || isset( $flipped["tag"] ) || isset( $flipped["author"] ) ){
-                        if( isset( $flipped['category']) ){
-                            $type = "category_name";
-                            $key = "category";
-                        }elseif (isset( $flipped['tag'] )) {
-                            $type = "tag";
-                            $key = $type;
 
-                        }elseif(isset( $flipped['author'] )){
-                            $type = "author";
-                            $key = $type;
-                        }
-                        $currKey = array_keys($archVal,"category");
-                        $nextKey = $currKey[0]+1;
-                        $value = $archVal [$nextKey];
-                        $args[ $type ] = $value;
-                    }
-                
+            switch( isset($flipped) ){
 
-                    if (in_array("page", $archVal)){
+                case $flipped["category"]:
+                $type = "category_name";
+                $key = "category";
+                break;
+                case $flipped["tag"]:
+                $type = "tag";
+                $key = "tag";
+                break;
+                case $flipped["author"]:
+                $type = "author";
+                $key = "author";
+                break;
+
+            }
+              $currKey = array_keys($archVal,"category");
+              $nextKey = $currKey[0]+1;
+              $value = $archVal [$nextKey];
+              $args[ $type ] = $value;
+                   if (in_array("page", $archVal)){
                     $pageVal = explode('page', $archive);
                     $page_trail = $pageVal[0];
-
-                    }  else{
-                            $page_trail = $archive;
-                        }
+                } else{
+                    $page_trail = $archive;
+                }
             
             /*
             $type = ( $archVal[1] == "category" ? "category_name" : $archVal[1]);

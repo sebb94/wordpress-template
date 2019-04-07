@@ -29,7 +29,7 @@
                 </div>
             </header>
 
-            <div clsas="entry-content">
+            <div class="entry-content">
 
                 <div class="entry-excerpt">
                     <?php the_content();?>
