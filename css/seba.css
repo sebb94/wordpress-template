@@ -557,9 +557,24 @@ h1 {
   display: flex;
   justify-content: space-between; }
   .single-post .post-navigation .nav-links a {
-    color: #f58800; }
+    color: #f58800;
+    margin: 0 10px; }
     .single-post .post-navigation .nav-links a:hover, .single-post .post-navigation .nav-links a:focus {
       color: #f95800; }
+  .single-post .post-navigation .nav-links .nav-previous::before {
+    position: relative;
+    content: "<<";
+    display: inline-block;
+    height: 19px;
+    width: 19px;
+    font-weight: 700; }
+  .single-post .post-navigation .nav-links .nav-next::after {
+    position: relative;
+    content: ">>";
+    display: inline-block;
+    height: 19px;
+    width: 19px;
+    font-weight: 700; }
 
 .seba-footer {
   background: #ccc;
