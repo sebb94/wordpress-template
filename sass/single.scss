@@ -15,6 +15,21 @@
           font-weight: 500;
       }
 
+      & a,
+      & .seba-tooltip,
+      & .seba-popover{
+        color: #f58800;
+          font-weight: 700;
+          cursor: pointer;
+
+          &:hover, 
+          &:focus{
+               color: #f95800;
+          }
+      }
+
+     
+
     }
 }
 
