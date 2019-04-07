@@ -19,7 +19,7 @@ Audio
         </div>
     </header>
  
-    <div clsas="entry-content">
+    <div class="entry-content">
      
             <?php 
                 echo seba_get_embeded_media(array('audio','iframe'));
