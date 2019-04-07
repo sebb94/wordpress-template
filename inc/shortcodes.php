@@ -48,7 +48,7 @@ function seba_popover( $atts, $content = null){
     // return HTML 
 
  
-    return '<span class="seba-popover" data-toggle="popover" data-placement="'. $atts['placement'].'" title="' . $atts['title'] . '" data-content="' . $atts['content'] .  '" data-trigger="' . $atts['trigger'] .  '">'. $content .'</span>';
+    return '<span class="seba-popover" data-toggle="popover" data-placement="'. $atts['placement'].'" title="' . $atts['title'] . '" data-content="' . $atts['content'] .  '" data-trigger="' . $atts['trigger'] .  '">'. $content .'</span>'; 
 
  
 }

@@ -553,6 +553,14 @@ h1 {
     .seba-single .entry-content .seba-popover:focus {
       color: #f95800; }
 
+.single-post .post-navigation .nav-links {
+  display: flex;
+  justify-content: space-between; }
+  .single-post .post-navigation .nav-links a {
+    color: #f58800; }
+    .single-post .post-navigation .nav-links a:hover, .single-post .post-navigation .nav-links a:focus {
+      color: #f95800; }
+
 .seba-footer {
   background: #ccc;
   color: white;

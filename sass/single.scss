@@ -28,8 +28,34 @@
           }
       }
 
-     
 
     }
 }
+.single-post{
 
+    & .post-navigation .nav-links{
+        display:flex;
+        justify-content:space-between; 
+
+        & a{
+            color: #f58800;
+              &:hover, 
+          &:focus{
+               color: #f95800;
+          }
+        }
+        & .nav-previous{
+            &::before{
+                position: relative;
+                content "asd";
+                display:block;
+                height:20px;
+                width:20px;
+            }
+        }
+         & .nav-next a{
+             
+           
+        }
+    }
+}
