@@ -101,6 +101,43 @@
     }
 
 
+    & .comments-area{
+        border-top: 4px solid #F1F1F1;
+
+        & .reply{
+                background: #f58800;
+                display: inline-block;
+                padding: 10px;
+                border-radius: 5px;
+                color: white;
+
+                & a{
+                    color:white;
+                    font-weight: 500;
+                    text-transform: uppercase;
+                }
+        }
+        & .comment-metadata {
+            padding: 15px 0;
+            color: #fff;
+            font-weight: 600;
+        }
+    }
+
+      & .comment-navigation .nav-links {
+          display: flex;
+          justify-content: space-between;
+
+          & a {
+              color: #f58800;
+              margin: 0 10px;
+
+              &:hover,
+              &:focus {
+                  color: #f95800;
+              }
+          }
+        }
 }
 
 

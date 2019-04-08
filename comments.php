@@ -10,13 +10,31 @@ if( post_password_required() ){
 
 ?>
 
-<div id="comments" class"comments-area">
+<div id="comments" class="comments-area">
 
-<?php if( have_comments() ): ?>
+    <?php if( have_comments() ): ?>
 
-<ol class="comment-list">
+    <h2 class="comment-title">
 
-    <?php 
+        <?php 
+
+        printf(
+            esc_html( _nx( 'One comment on &ldquo;%2$s&rdquo;' , '%1$s comments on &ldquo;%2$s&rdquo;',get_comments_number(), 'comments title', 'seba-theme'  )  ),
+            number_format_i18n( get_comments_number() ),
+            '<span>' . get_the_title() . '</span>'
+        );
+
+    ?>
+
+    </h2>
+
+    <?php seba_get_post_navigation(); ?>
+
+   
+
+    <ol class="comment-list">
+
+        <?php 
     
     $args = array(
         'walker'            => null,
@@ -28,7 +46,7 @@ if( post_password_required() ){
         'replay_text'       => 'Replay',
         'page'              => '', 
         'per_page'          => '',
-        'avatar'            => 32, 
+        'avatar_size'       => 64, 
         'reverse_top_level' => null, 
         'reverse_children'  => '',
         'format'            => 'html5',
@@ -39,18 +57,47 @@ if( post_password_required() ){
     
     ?>
 
-</ol>
+    </ol>
 
-<?php if( !comments_open() && get_comments_number()): ?>
+    <?php seba_get_post_navigation(); ?>
+
+    <?php if( !comments_open() && get_comments_number()): ?>
 
     <p class="seba-no-comments">
         <?php esc_html_e('Comments are closed.','seba-theme');?>
     </p>
 
-<?php endif;?>
-<?php endif; ?>
+    <?php endif;?>
+    <?php endif; ?>
+
+
+    <?php 
     
+ 	$fields = array(
+			
+			'author' =>
+				'<div class="form-group"><label for="author">' . __( 'Name', 'domainreference' ) . '</label> <span class="required">*</span> <input id="author" name="author" type="text" class="form-control" value="' . esc_attr( $commenter['comment_author'] ) . '" required="required" /></div>',
+				
+			'email' =>
+				'<div class="form-group"><label for="email">' . __( 'Email', 'domainreference' ) . '</label> <span class="required">*</span><input id="email" name="email" class="form-control" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" required="required" /></div>',
+				
+			'url' =>
+				'<div class="form-group last-field"><label for="url">' . __( 'Website', 'domainreference' ) . '</label><input id="url" name="url" class="form-control" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" /></div>'
+				
+		);
 
-<?php comment_form(); ?>
+    $args = array( 
 
-</div> <!-- comments --> 
+        'class_submit'      => 'btn btn-block btn-lg btn-info',
+        'label_submit'      => __('Submit Comment'),
+        'comment_field' =>
+				'<div class="form-group"><label for="comment">' . _x( 'Comment', 'noun' ) . '</label> <span class="required">*</span><textarea id="comment" class="form-control" name="comment" rows="4" required="required"></textarea></p>',
+        'fields'            => apply_filters('comment_form_default_fields', $fields)
+
+    );
+
+    comment_form($args); 
+    
+    ?>
+
+</div> <!-- comments -->
