@@ -169,5 +169,11 @@
 
     }
 
+    /* comments */
+
+    if ($('.nav-previous').html() == ''){
+        $('')
+    }
+
 
 })(jQuery)

@@ -188,8 +188,17 @@ function seba_share_this( $content ){
 
         return $content;
     }else{
-        return $content;
+        return $content; 
     }
 
 }
 add_filter( 'the_content', 'seba_share_this');
+
+function seba_get_post_navigation(){
+
+ if( get_comment_pages_count() > 1 && get_option( 'page_comments' )):
+
+   require_once(get_template_directory() . '/inc/templates/seba_comment_nav.php');
+ endif;
+ 
+}
