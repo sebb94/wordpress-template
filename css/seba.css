@@ -553,28 +553,52 @@ h1 {
     .seba-single .entry-content .seba-popover:focus {
       color: #f95800; }
 
-.single-post .post-navigation .nav-links {
-  display: flex;
-  justify-content: space-between; }
-  .single-post .post-navigation .nav-links a {
-    color: #f58800;
-    margin: 0 10px; }
-    .single-post .post-navigation .nav-links a:hover, .single-post .post-navigation .nav-links a:focus {
-      color: #f95800; }
-  .single-post .post-navigation .nav-links .nav-previous::before {
-    position: relative;
-    content: "<<";
-    display: inline-block;
-    height: 19px;
-    width: 19px;
-    font-weight: 700; }
-  .single-post .post-navigation .nav-links .nav-next::after {
-    position: relative;
-    content: ">>";
-    display: inline-block;
-    height: 19px;
-    width: 19px;
-    font-weight: 700; }
+.single-post {
+  /* share */ }
+  .single-post .post-navigation .nav-links {
+    display: flex;
+    justify-content: space-between; }
+    .single-post .post-navigation .nav-links a {
+      color: #f58800;
+      margin: 0 10px; }
+      .single-post .post-navigation .nav-links a:hover, .single-post .post-navigation .nav-links a:focus {
+        color: #f95800; }
+    .single-post .post-navigation .nav-links .nav-previous::before {
+      position: relative;
+      content: "<<";
+      display: inline-block;
+      height: 19px;
+      width: 19px;
+      font-weight: 700; }
+    .single-post .post-navigation .nav-links .nav-next::after {
+      position: relative;
+      content: ">>";
+      display: inline-block;
+      height: 19px;
+      width: 19px;
+      font-weight: 700; }
+  .single-post .seba-share-this {
+    display: block;
+    text-align: center;
+    border-top: 1px solid #f1f1f1;
+    padding-top: 10px;
+    clear: both; }
+    .single-post .seba-share-this ul {
+      margin: 0;
+      padding: 0;
+      list-style: none; }
+      .single-post .seba-share-this ul li {
+        float: none;
+        display: inline-block; }
+    .single-post .seba-share-this a {
+      display: inline-block;
+      font-size: 20px;
+      opacity: 0.65;
+      margin: 0 5px;
+      color: #000; }
+      .single-post .seba-share-this a:hover, .single-post .seba-share-this a:focus {
+        opacity: 1;
+        color: #000; }
 
 .seba-footer {
   background: #ccc;

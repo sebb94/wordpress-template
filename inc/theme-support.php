@@ -163,3 +163,27 @@ function seba_grab_current_url(){
         return $archive_url;
 }
      
+function seba_share_this( $content ){
+
+    if( is_single() ){
+
+        $content .= '<div class="seba-share-this"><h4>Share This!</h4>';
+        $title = get_the_title();
+        $permalink = get_permalink();
+        $twitterHandler = ( get_option('twitter_hanlder') ? '&amp;via-' . esc_attr(get_option('twitter_hanlder') ) : '');
+
+        $twitter = 'https://twitter.com/intent/tweet?text='.$title.'&amp;url='.$permalink.$twitterHandler;
+        $facebook = 'https://facebook.com/sharer/sharer.php?u=' . $permalink;
+
+        $content .='<ul>';
+        $content .=  '<li><a href="'.$twitter.'" target="_blank" rel="nofollow"><i class="fab fa-twitter"></i> </a></li>';
+        $content .= '<li><a href="'.$facebook.'" target="_blank" rel="nofollow"><i class="fab fa-facebook-f"></i></a></li>';
+        $content .= '</ul></div><!-- .seba-share-->';
+
+        return $content;
+    }else{
+        return $content;
+    }
+
+}
+add_filter( 'the_content', 'seba_share_this');
