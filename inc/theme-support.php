@@ -35,6 +35,12 @@ function seba_register_nav_menu(){
 
 add_action('after_setup_theme','seba_register_nav_menu');
 
+
+/* activate html5 features */
+
+add_theme_support('html5', array('comment-list','comment-form','search-form','gallery','caption') );
+
+
 /* BLOG LOOP CUSTOM FUNCTION */
 
 function seba_posted_meta(){

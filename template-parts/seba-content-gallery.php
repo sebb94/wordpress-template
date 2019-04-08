@@ -1,9 +1,7 @@
 <?php /*
-
 @package sebatheme
 Gallery format
 */
-
 ?>
 
 <article id="post-<?php the_ID();?>" <?php post_class('seba-format-gallery');?>>
@@ -15,7 +13,6 @@ Gallery format
             <div class="carousel-inner">
 
                 <?php 
-
                 $attachments = seba_get_bs_slides( seba_get_attachments(7) );
            
                 foreach ($attachments as $attachment):
@@ -53,10 +50,6 @@ Gallery format
             </a>
 
         </div> <!-- carousel -->
-
-
-
-
 
         <?php endif; ?>
 
