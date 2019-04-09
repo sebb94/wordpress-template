@@ -233,11 +233,13 @@ article {
   height: 100vh;
   width: 100%;
   max-width: 280px;
+  text-align: center;
   -webkit-transition: transform 320ms ease;
   -moz-transition: transform 320ms ease;
   -ms-transition: transform 320ms ease;
   -o-transition: transform 320ms ease;
-  transition: transform 320ms ease; }
+  transition: transform 320ms ease;
+  /* from admin */ }
   .seba-sidebar.sidebar-closed {
     -webkit-transform: translateX(100%);
     -moz-transform: translateX(100%);
@@ -258,6 +260,25 @@ article {
     cursor: pointer; }
     .seba-sidebar .sidebar-close:hover, .seba-sidebar .sidebar-close:focus {
       color: #f95800 !important; }
+  .seba-sidebar .seba-widget h1,
+  .seba-sidebar .seba-widget h2 {
+    color: white;
+    font-weight: 100;
+    font-size: 25px; }
+  .seba-sidebar .profile-picture {
+    width: 122px;
+    height: 122px;
+    overflow: hidden;
+    border-radius: 500px;
+    margin: 20px auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover; }
+  .seba-sidebar .icons-wrapper i {
+    font-size: 25px;
+    color: #fff;
+    position: relative;
+    padding: 10px; }
 
 .sidebar-open {
   position: absolute;

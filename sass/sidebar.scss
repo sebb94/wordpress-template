@@ -9,6 +9,7 @@
     height: 100vh;
     width: 100%;
     max-width: 280px;
+    text-align: center;
     @include animate (transform, 320ms);
 
      &.sidebar-closed{
@@ -37,6 +38,41 @@
          }
      }
 
+     /* from admin */
+
+     & .seba-widget{
+
+ 
+
+  & h1,
+  & h2 {
+      color: white;
+      font-weight: 100;
+      font-size: 25px;
+  }
+  }
+
+  .profile-picture {
+      width: 122px;
+      height: 122px;
+      overflow: hidden;
+      border-radius: 500px;
+      margin: 20px auto;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
+
+  .icons-wrapper {
+      & i {
+          font-size: 25px;
+          color: #fff;
+          position: relative;
+          padding: 10px;
+      }
+     }
+     
+
 }
 
 .sidebar-open{
@@ -52,3 +88,4 @@
  }
      
 }
+
