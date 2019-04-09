@@ -18,13 +18,13 @@
       & a,
       & .seba-tooltip,
       & .seba-popover{
-        color: #f58800;
+        color: $orange;
           font-weight: 700;
           cursor: pointer;
 
           &:hover, 
           &:focus{
-               color: #f95800;
+               color: $orange-hover;
           }
       }
 
@@ -38,11 +38,11 @@
         justify-content:space-between; 
 
         & a{
-            color: #f58800;
+            color: $orange;
             margin: 0 10px;
               &:hover, 
           &:focus{
-               color: #f95800;
+               color: $orange-hover;
           }
         }
         & .nav-previous{
@@ -105,7 +105,7 @@
         border-top: 4px solid #F1F1F1;
 
         & .reply{
-                background: #f58800;
+                background: $orange;
                 display: inline-block;
                 padding: 10px;
                 border-radius: 5px;
@@ -129,12 +129,12 @@
           justify-content: space-between;
 
           & a {
-              color: #f58800;
+              color: $orange;
               margin: 0 10px;
 
               &:hover,
               &:focus {
-                  color: #f95800;
+                  color: $orange-hover;
               }
           }
         }

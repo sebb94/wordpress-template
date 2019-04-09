@@ -176,4 +176,12 @@
     }
 
 
+    /* sidebar */
+
+    $(document).on('click', '.js-toggleSidebar', function () {
+
+        $('.seba-sidebar').toggleClass('sidebar-closed');
+
+    });
+
 })(jQuery)

@@ -1,0 +1,91 @@
+.seba-sidebar {   
+    position: fixed;
+    color: #fff;
+    top:0;
+    bottom: 0;
+    right: 0;
+    background-color: #1F1F1F;
+    z-index: 9;
+    height: 100vh;
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+    @include animate (transform, 320ms);
+
+     &.sidebar-closed{
+         @include transform( translateX(100%) );
+     }
+
+     
+     & .seba-sidebar-container{
+         position: relative;
+         display: block;
+         width: 100%;
+         height: 100vh;
+         padding-top: 40px;
+     }
+
+     & .sidebar-close{
+         position: absolute;
+         top: 10px;
+         left: 10px;
+         color: #fff;
+         cursor: pointer;
+
+         &:hover,
+         &:focus{
+             color: $orange-hover !important;
+         }
+     }
+
+     /* from admin */
+
+     & .seba-widget{
+
+ 
+
+  & h1,
+  & h2 {
+      color: white;
+      font-weight: 100;
+      font-size: 25px;
+  }
+  }
+
+  .profile-picture {
+      width: 122px;
+      height: 122px;
+      overflow: hidden;
+      border-radius: 500px;
+      margin: 20px auto;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
+
+  .icons-wrapper {
+      & i {
+          font-size: 25px;
+          color: #fff;
+          position: relative;
+          padding: 10px;
+      }
+     }
+     
+
+}
+
+.sidebar-open{
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #fff !important;
+      cursor: pointer;
+      font-size: 25px;
+ &:hover,
+ &:focus {
+     color: $orange-hover !important;
+ }
+     
+}
+

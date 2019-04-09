@@ -38,3 +38,9 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover; }
+
+.icons-wrapper i {
+  font-size: 25px;
+  color: #fff;
+  position: relative;
+  padding: 10px; }
