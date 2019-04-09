@@ -232,7 +232,42 @@ article {
   z-index: 9;
   height: 100vh;
   width: 100%;
-  max-width: 280px; }
+  max-width: 280px;
+  -webkit-transition: transform 320ms ease;
+  -moz-transition: transform 320ms ease;
+  -ms-transition: transform 320ms ease;
+  -o-transition: transform 320ms ease;
+  transition: transform 320ms ease; }
+  .seba-sidebar.sidebar-closed {
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transform: translateX(100%); }
+  .seba-sidebar .seba-sidebar-container {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100vh;
+    padding-top: 40px; }
+  .seba-sidebar .sidebar-close {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #fff;
+    cursor: pointer; }
+    .seba-sidebar .sidebar-close:hover, .seba-sidebar .sidebar-close:focus {
+      color: #f95800 !important; }
+
+.sidebar-open {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #fff !important;
+  cursor: pointer;
+  font-size: 25px; }
+  .sidebar-open:hover, .sidebar-open:focus {
+    color: #f95800 !important; }
 
 .navbar-seba {
   justify-content: center;

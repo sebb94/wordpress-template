@@ -21,19 +21,28 @@
     </head>
 <body <?php body_class();?>>
 
-    <div class="seba-sidebar">
-        <div class="seba-sidebar-scroll">
-        
-            <?php get_sidebar();?>
+    <div class="seba-sidebar sidebar-closed">
 
-        </div>
-    
+            <div class="seba-sidebar-container">
+                <a class="js-toggleSidebar sidebar-close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </a>
+                    <div class="seba-sidebar-scroll">
+                
+                        <?php get_sidebar();?>
+
+                    </div>
+            </div>
     </div>
 
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="header-container text-center background-image" style="background-image: url(<?php header_image();?>)">
+
+                      <a class="js-toggleSidebar sidebar-open">
+                  <i class="fas fa-bars"></i>
+                </a>
 
                     <div class="header-content">
                         <i class="fa fa-smile-wink"></i>

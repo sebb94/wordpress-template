@@ -9,6 +9,46 @@
     height: 100vh;
     width: 100%;
     max-width: 280px;
+    @include animate (transform, 320ms);
 
+     &.sidebar-closed{
+         @include transform( translateX(100%) );
+     }
 
+     
+     & .seba-sidebar-container{
+         position: relative;
+         display: block;
+         width: 100%;
+         height: 100vh;
+         padding-top: 40px;
+     }
+
+     & .sidebar-close{
+         position: absolute;
+         top: 10px;
+         left: 10px;
+         color: #fff;
+         cursor: pointer;
+
+         &:hover,
+         &:focus{
+             color: $orange-hover !important;
+         }
+     }
+
+}
+
+.sidebar-open{
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #fff !important;
+      cursor: pointer;
+      font-size: 25px;
+ &:hover,
+ &:focus {
+     color: $orange-hover !important;
+ }
+     
 }
