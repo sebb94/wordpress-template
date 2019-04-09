@@ -40,6 +40,27 @@ add_action('after_setup_theme','seba_register_nav_menu');
 
 add_theme_support('html5', array('comment-list','comment-form','search-form','gallery','caption') );
 
+/* Sidebar function */
+
+function seba_sidebar_init(){
+
+    register_sidebar(array(
+        'name'         => esc_html__('Seba Sidebar', 'sebatheme'),
+        'id'            => "seba-sidebar",
+        'description'   => 'Dynamic right sidebar',
+        'class'         => '',
+        'before_widget' => '<section id="%1$s" class="seba-widget %2$s">',
+        'after_widget'  => "</section>",
+        'before_title'  => '<h2 class="seba-widget-title">',
+        'after_title'   => "</h2>",
+    )
+    );
+
+}
+add_action('widgets_init', 'seba_sidebar_init');
+
+
+
 
 /* BLOG LOOP CUSTOM FUNCTION */
 

@@ -21,6 +21,15 @@
     </head>
 <body <?php body_class();?>>
 
+    <div class="seba-sidebar">
+        <div class="seba-sidebar-scroll">
+        
+            <?php get_sidebar();?>
+
+        </div>
+    
+    </div>
+
     <div class="container">
         <div class="row">
             <div class="col-12">
