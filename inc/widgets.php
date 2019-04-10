@@ -71,3 +71,11 @@ class Seba_Profile_Widget extends WP_Widget{
 add_action('widgets_init', function(){
     register_widget('Seba_Profile_Widget');
 } );
+
+/* tags remove font-size */
+
+add_filter('wp_generate_tag_cloud', 'myprefix_tag_cloud',10,1);
+
+function myprefix_tag_cloud($tag_string){
+  return preg_replace('/style=("|\')(.*?)("|\')/','',$tag_string);
+}

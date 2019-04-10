@@ -246,6 +246,12 @@ article {
     -ms-transform: translateX(100%);
     -o-transform: translateX(100%);
     transform: translateX(100%); }
+  .seba-sidebar a {
+    color: #bababa;
+    cursor: pointer; }
+    .seba-sidebar a:hover, .seba-sidebar a:focus {
+      color: #fff;
+      cursor: pointer; }
   .seba-sidebar .seba-sidebar-container {
     position: relative;
     display: block;
@@ -260,11 +266,34 @@ article {
     cursor: pointer; }
     .seba-sidebar .sidebar-close:hover, .seba-sidebar .sidebar-close:focus {
       color: #f95800 !important; }
-  .seba-sidebar .seba-widget h1,
-  .seba-sidebar .seba-widget h2 {
-    color: white;
-    font-weight: 100;
-    font-size: 25px; }
+  .seba-sidebar .seba-widget {
+    margin: 20px 0;
+    padding: 0 20px; }
+    .seba-sidebar .seba-widget h2.seba-widget-title {
+      display: block;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 300;
+      background-color: #303030;
+      padding: 8px;
+      border-radius: 20px;
+      line-height: 1em;
+      margin-bottom: 20px;
+      letter-spacing: 0.2px; }
+    .seba-sidebar .seba-widget h1,
+    .seba-sidebar .seba-widget h2 {
+      color: white;
+      font-weight: 100;
+      font-size: 25px; }
+    .seba-sidebar .seba-widget .tagcloud {
+      text-align: center; }
+      .seba-sidebar .seba-widget .tagcloud a {
+        display: inline-block;
+        background-color: #7d7d7d;
+        color: #eee;
+        padding: 1px 9px;
+        border-radius: 10px;
+        margin: 3px; }
   .seba-sidebar .profile-picture {
     width: 122px;
     height: 122px;
@@ -275,7 +304,7 @@ article {
     background-repeat: no-repeat;
     background-size: cover; }
   .seba-sidebar .icons-wrapper i {
-    font-size: 25px;
+    font-size: 16px;
     color: #fff;
     position: relative;
     padding: 10px; }

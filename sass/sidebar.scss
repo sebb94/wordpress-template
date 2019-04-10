@@ -12,10 +12,21 @@
     text-align: center;
     @include animate (transform, 320ms);
 
+
      &.sidebar-closed{
          @include transform( translateX(100%) );
      }
 
+     & a{
+         color: #bababa; 
+         cursor: pointer;
+
+         &:hover, 
+         &:focus{
+             color: #fff;
+              cursor: pointer;
+         }
+     }
      
      & .seba-sidebar-container{
          position: relative;
@@ -42,15 +53,43 @@
 
      & .seba-widget{
 
- 
+     margin: 20px 0;
+     padding: 0 20px;
 
-  & h1,
-  & h2 {
-      color: white;
-      font-weight: 100;
-      font-size: 25px;
-  }
-  }
+     h2.seba-widget-title {
+         display: block;
+         text-align: center;
+         font-size: 15px;
+         font-weight: 300;
+         background-color: #303030;
+         padding: 8px;
+         border-radius: 20px;
+         line-height: 1em;
+         margin-bottom: 20px;
+         letter-spacing: 0.2px;
+     }
+
+    
+        & h1,
+        & h2 {
+            color: white;
+            font-weight: 100;
+            font-size: 25px;
+        }
+
+        & .tagcloud{
+            text-align: center;
+            & a{
+                display: inline-block;
+                background-color: #7d7d7d;
+                color: #eee;
+                padding: 1px 9px;
+                border-radius: 10px;
+                margin: 3px;
+            }
+        }
+}
+  
 
   .profile-picture {
       width: 122px;
@@ -65,16 +104,15 @@
 
   .icons-wrapper {
       & i {
-          font-size: 25px;
+          font-size: 16px;
           color: #fff;
           position: relative;
           padding: 10px;
       }
      }
      
-
 }
-
+  
 .sidebar-open{
       position: absolute;
       top: 10px;
@@ -88,4 +126,5 @@
  }
      
 }
+
 
