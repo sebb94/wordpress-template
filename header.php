@@ -21,8 +21,8 @@
     </head>
 <body <?php body_class();?>>
 
-    <!-- <div class="seba-sidebar sidebar-closed"> -->
- <div class="seba-sidebar"> 
+    <div class="seba-sidebar sidebar-closed">
+
             <div class="seba-sidebar-container">
                 <a class="js-toggleSidebar sidebar-close">
                     <i class="fa fa-times" aria-hidden="true"></i>
@@ -33,6 +33,11 @@
 
                     </div>
             </div>
+    </div>
+
+    <div class="sidebar-overlay">
+ 
+
     </div>
 
     <div class="container">

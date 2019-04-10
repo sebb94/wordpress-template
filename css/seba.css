@@ -129,6 +129,9 @@ img.aligncenter {
 * {
   font-family: 'Raleway', 'Helvetica Neue', 'Helvetica', Arial, Verdana, sans-serif; }
 
+body.no-scroll {
+  overflow-y: hidden; }
+
 a {
   color: #000; }
   a:hover, a:focus {
@@ -222,6 +225,16 @@ article {
 .container-load-previous {
   margin-top: 40px; }
 
+.sidebar-overlay {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  z-index: 3;
+  display: none; }
+
 .seba-sidebar {
   position: fixed;
   color: #fff;
@@ -233,7 +246,6 @@ article {
   height: 100vh;
   width: 100%;
   max-width: 280px;
-  text-align: center;
   -webkit-transition: transform 320ms ease;
   -moz-transition: transform 320ms ease;
   -ms-transition: transform 320ms ease;
@@ -258,6 +270,13 @@ article {
     width: 100%;
     height: 100vh;
     padding-top: 40px; }
+    .seba-sidebar .seba-sidebar-container .seba-sidebar-scroll {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto; }
   .seba-sidebar .sidebar-close {
     position: absolute;
     top: 10px;
@@ -284,7 +303,15 @@ article {
     .seba-sidebar .seba-widget h2 {
       color: white;
       font-weight: 100;
-      font-size: 25px; }
+      font-size: 25px;
+      text-align: center; }
+    .seba-sidebar .seba-widget ul {
+      padding: 0;
+      list-style: none; }
+    .seba-sidebar .seba-widget.widget_categories ul li {
+      display: flex;
+      justify-content: space-between;
+      margin: 5px 0; }
     .seba-sidebar .seba-widget .tagcloud {
       text-align: center; }
       .seba-sidebar .seba-widget .tagcloud a {
@@ -294,6 +321,37 @@ article {
         padding: 1px 9px;
         border-radius: 10px;
         margin: 3px; }
+    .seba-sidebar .seba-widget .cat-item {
+      position: relative; }
+      .seba-sidebar .seba-widget .cat-item a,
+      .seba-sidebar .seba-widget .cat-item span {
+        display: block;
+        line-height: 1em; }
+      .seba-sidebar .seba-widget .cat-item a {
+        padding: 4px 0; }
+      .seba-sidebar .seba-widget .cat-item span {
+        position: absolute;
+        right: 0;
+        top: 2px;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 2px 7px 5px;
+        background-color: #7D7D7D;
+        border-radius: 10px; }
+    .seba-sidebar .seba-widget .recentcomments {
+      font-size: 10px;
+      color: #ccc; }
+      .seba-sidebar .seba-widget .recentcomments a {
+        text-transform: uppercase; }
+      .seba-sidebar .seba-widget .recentcomments span,
+      .seba-sidebar .seba-widget .recentcomments span a {
+        display: block;
+        color: #fff;
+        font-size: 14px;
+        padding-bottom: 4px;
+        margin-bottom: 2px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        text-transform: none; }
   .seba-sidebar .profile-picture {
     width: 122px;
     height: 122px;
@@ -303,11 +361,13 @@ article {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover; }
-  .seba-sidebar .icons-wrapper i {
-    font-size: 16px;
-    color: #fff;
-    position: relative;
-    padding: 10px; }
+  .seba-sidebar .icons-wrapper {
+    text-align: center; }
+    .seba-sidebar .icons-wrapper i {
+      font-size: 16px;
+      color: #fff;
+      position: relative;
+      padding: 10px; }
 
 .sidebar-open {
   position: absolute;

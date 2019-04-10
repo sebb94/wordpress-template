@@ -6,6 +6,12 @@
 * {
     font-family: 'Raleway', 'Helvetica Neue', 'Helvetica', Arial, Verdana, sans-serif;
 }
+
+body{
+    &.no-scroll{
+        overflow-y: hidden;
+    }
+}
 a{
     color: #000;
     &:hover,&:focus{
