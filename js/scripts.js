@@ -181,7 +181,8 @@
     $(document).on('click', '.js-toggleSidebar', function () {
 
         $('.seba-sidebar').toggleClass('sidebar-closed');
-
+        $('.sidebar-overlay').fadeToggle(320);
+        $('body').toggleClass('no-scroll');
     });
 
 })(jQuery)
