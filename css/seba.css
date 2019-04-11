@@ -352,6 +352,20 @@ article {
         margin-bottom: 2px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         text-transform: none; }
+    .seba-sidebar .seba-widget .popular-li {
+      display: flex; }
+      .seba-sidebar .seba-widget .popular-li .popular-number {
+        display: inline-block;
+        margin-left: auto;
+        width: 30px;
+        height: 30px;
+        color: #fff;
+        text-align: center;
+        line-height: 1;
+        background: #f58800;
+        padding: 4px;
+        border-radius: 50%;
+        border: 1px solid #fff; }
   .seba-sidebar .profile-picture {
     width: 122px;
     height: 122px;

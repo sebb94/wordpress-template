@@ -95,3 +95,101 @@ function seba_save_post_views($postID){
     echo $views;
 }
 remove_action('wp_head','adjacent_posts_rel_link_wp_head',10,0);
+
+/* Popular post widget */
+
+Class Seba_Popular_Posts_Widget extends WP_Widget {
+
+
+        public function __construct(){
+
+        $widget_ops = array(
+
+            'classname'     => 'seba-popular-posts-widget',
+            'description'   => 'Custom Seba Popular Posts Widget', 
+
+        );
+        parent::__construct('seba_popular_posts', 'Seba Popular Posts', $widget_ops);
+    }
+
+    // back-end 
+
+    public function form( $instance ){
+       
+        $title = ( !empty( $instance['title'] ) ? $instance['title'] : 'Popular Posts' );
+        $total = ( !empty( $instance['tot'] ) ? absint( $instance['tot'] ) : 4 );
+
+        $output  = "<p>";
+        $output .= '<label for="' . esc_attr( $this->get_field_id('title') ) . '">Title:</label>';
+        $output .= '<input type="text" class="widefat" id="'. esc_attr( $this->get_field_id('title') ) . '" name="' . esc_attr( $this->get_field_name('title') ) . '" value="' . esc_attr( $title) . '"' ;
+        $output .= "</p>";
+        $output  .= "<p>";
+        $output .= '<label for="' . esc_attr( $this->get_field_id('tot') ) . '">Number of posts:</label>';
+        $output .= '<input type="number" class="widefat" id="'. esc_attr( $this->get_field_id('tot') ) . '" name="' . esc_attr( $this->get_field_name('tot') ) . '" value="' . esc_attr( $total) . '"' ;
+        $output .= "</p>";
+
+        echo $output;
+
+    }
+
+    //update widget 
+
+    public function update( $new_instance, $old_instance ){
+
+        $instance = array(); 
+       $instance[ 'title' ] = ( !empty( $new_instance[ 'title' ] ) ? strip_tags( $new_instance[ 'title' ] ) : '' );
+        $instance['tot'] = ( !empty( $new_instance['tot'] ) ? absint( strip_tags( $new_instance['tot'] ) ) : 0);
+
+        return $instance;
+    }
+
+    //front-end display widget 
+
+    public function widget( $args, $instance ){
+
+        $tot = absint( $instance['tot'] );
+        $posts_args = array(
+            'post_type'     => 'post',
+            'post_per_page' => $tot,
+            'meta_key'      => 'seba_post_views', 
+            'order_by'      => 'meta_value_num', 
+            'order'         => 'DESC'
+
+        );
+
+        $posts_query = new WP_Query($posts_args);
+
+        echo $args['before_widget'];
+    
+        if( !empty($instance['title']) ):
+ 
+            echo $args ['before_title'] . apply_filters('widget-title',$instance['title']) . $args['after_title'];
+
+        endif;
+        if ($posts_query->have_posts() ):
+
+            echo '<ul>';
+            
+            while ( $posts_query->have_posts() ): 
+                $posts_query->the_post();
+             
+              $postID = get_the_id();
+                $numViews = get_post_meta($postID , 'seba_post_views',true);
+                echo '<li class="popular-li"><a href="' . get_the_permalink($postID) . '">' .  get_the_title() . '</a><span class="popular-number">' . $numViews .  '</span></li>';
+
+            endwhile;
+            
+            echo '</ul>';
+
+
+        endif;
+
+        echo $args['after_widget'];
+
+    }
+
+}
+
+add_action('widgets_init', function(){
+    register_widget('Seba_Popular_Posts_Widget');
+} );

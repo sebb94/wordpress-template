@@ -182,6 +182,25 @@
             }
 
         }
+
+        & .popular-li{
+            display:flex;
+            & .popular-number {
+                 display: inline-block;
+                 margin-left: auto;
+                 width: 30px;
+                 height: 30px;
+                 color: #fff;
+                 text-align: center;
+                 line-height: 1;
+                 background: $orange;
+                 padding: 4px;
+                 border-radius: 50%;
+                 border: 1px solid #fff
+            }
+
+        }
+        
 }
   
 
