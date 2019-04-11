@@ -18,6 +18,7 @@ get_header();
 
                             while( have_posts() ) : the_post();
                         
+                            seba_save_post_views( get_the_ID() );
                             get_template_part('template-parts/seba-content-single', get_post_format());
                         
                             the_post_navigation();

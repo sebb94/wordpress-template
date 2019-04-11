@@ -79,3 +79,19 @@ add_filter('wp_generate_tag_cloud', 'myprefix_tag_cloud',10,1);
 function myprefix_tag_cloud($tag_string){
   return preg_replace('/style=("|\')(.*?)("|\')/','',$tag_string);
 }
+
+/* Save post view */
+
+function seba_save_post_views($postID){
+
+    $metaKey = 'seba_post_views';
+    $views = get_post_meta($postID, $metaKey, true);
+    
+    $count = ( empty( $views ) ? '0' : $views );
+    $count++;
+
+    update_post_meta( $postID, $metaKey, $count);
+
+    echo $views;
+}
+remove_action('wp_head','adjacent_posts_rel_link_wp_head',10,0);
