@@ -35,7 +35,7 @@
             </div>
     </div>
 
-    <div class="sidebar-overlay">
+    <div class="sidebar-overlay js-toggleSidebar">
  
 
     </div>
