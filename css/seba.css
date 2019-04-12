@@ -233,7 +233,8 @@ article {
   background-color: rgba(0, 0, 0, 0.4);
   position: fixed;
   z-index: 3;
-  display: none; }
+  display: none;
+  cursor: e-resize; }
 
 .seba-sidebar {
   position: fixed;
