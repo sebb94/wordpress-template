@@ -175,7 +175,7 @@ Class Seba_Popular_Posts_Widget extends WP_Widget {
              
               $postID = get_the_id();
                 $numViews = get_post_meta($postID , 'seba_post_views',true);
-                echo '<li class="popular-li"><a href="' . get_the_permalink($postID) . '">' .  get_the_title() . '</a><span class="popular-number">' . $numViews .  '</span></li>';
+                echo '<li class="popular-li"><div class="sidebar-widget-top"><a href="' . get_the_permalink($postID) . '">' .  get_the_title() . '</a><span class="popular-number">' . $numViews .  '</span></div>'. seba_posted_sidebar() .'</li>';
 
             endwhile;
             

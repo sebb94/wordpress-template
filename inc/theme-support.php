@@ -108,6 +108,25 @@ function seba_posted_footer(){
              </div>
         </div>';
 }
+function seba_posted_sidebar(){
+    $comments_num = get_comments_number();
+    if ( comments_open()){
+        if($comments_num == 0){
+            $comments = __('No Comments');
+        }elseif ($comments_num == 1) {
+            $comments =  __('1 Comment');
+        }else{
+            $comments = $comments_num . " " .   __('Comments');
+        }
+        $comments = '<a href="'. get_comments_link().'"> '. $comments . ' <i class="far fa-comments"></i></a>';
+    }else{
+        $comments = __("Comments are closed");
+    }
+
+ return '<div class="widget-comments"><span>'. $comments .' </span></div>';
+
+
+}
 function seba_get_attachments( $num = 1 ){
 
 	$output = '';
