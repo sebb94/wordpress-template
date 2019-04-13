@@ -58,7 +58,29 @@ add_shortcode('popover', 'seba_popover');
 
 
 
+// Contact form shortcode
 
+function seba_contact_form_shortcode( $atts, $content = null){
+
+    // get the attr 
+    $atts = shortcode_atts(
+        array(), 
+        $atts,
+        'contact_form'
+    );
+
+    // return HTML 
+
+
+    ob_start();
+    include 'templates/seba_cf_template.php';
+    return ob_get_clean();
+
+ 
+}
+
+
+add_shortcode('contact_form', 'seba_contact_form_shortcode');
 
 
 

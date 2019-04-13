@@ -354,7 +354,9 @@ article {
         border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         text-transform: none; }
     .seba-sidebar .seba-widget .popular-li {
-      display: flex; }
+      display: flex;
+      flex-direction: column;
+      margin: 10px 0; }
       .seba-sidebar .seba-widget .popular-li .popular-number {
         display: inline-block;
         margin-left: auto;
@@ -393,6 +395,12 @@ article {
   font-size: 25px; }
   .sidebar-open:hover, .sidebar-open:focus {
     color: #f95800 !important; }
+
+.sidebar-widget-top {
+  display: flex; }
+
+.widget-comments span a {
+  font-size: 12px; }
 
 .navbar-seba {
   justify-content: center;

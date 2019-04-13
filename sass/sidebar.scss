@@ -186,6 +186,8 @@
 
         & .popular-li{
             display:flex;
+            flex-direction: column;
+            margin: 10px 0;
             & .popular-number {
                  display: inline-block;
                  margin-left: auto;
@@ -241,4 +243,13 @@
      color: $orange-hover !important;
  }
      
+}
+.sidebar-widget-top{
+    display: flex;
+}
+.widget-comments{
+
+    & span a {
+        font-size: 12px;
+    }
 }
