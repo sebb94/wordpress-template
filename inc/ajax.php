@@ -104,3 +104,19 @@ $output = '';
         return $output;
     }
 }
+
+add_action('wp_ajax_nopriv_seba_save_user_contact_form', 'seba_save_contact');
+add_action('wp_ajax_seba_save_user_contact_form', 'seba_save_contact');
+
+function seba_save_contact(){
+
+    $name = wp_strip_all_tags($_POST['name']);
+    $email = wp_strip_all_tags($_POST['email']);
+    $message = wp_strip_all_tags($_POST['message']);
+
+    echo $name . " " . $email . " " . $message;
+    //wp_insert_post();
+
+    die();
+
+}
