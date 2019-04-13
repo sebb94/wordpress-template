@@ -111,9 +111,9 @@ add_action('wp_ajax_seba_save_user_contact_form', 'seba_save_contact');
 function seba_save_contact(){
 
  
-    $name = wp_strip_all_tags($_POST['name']);
-    $email = wp_strip_all_tags($_POST['email']);
-    $message = wp_strip_all_tags($_POST['message']);
+    $name = wp_strip_all_tags( $_POST['name'] );
+    $email = wp_strip_all_tags( $_POST['email'] );
+    $message = wp_strip_all_tags( $_POST['message'] );
 
        $args = array(
         'post_title'    => $name,
@@ -129,7 +129,24 @@ function seba_save_contact(){
     echo $name . " " . $email . " " . $message;
    $postID = wp_insert_post( $args, $wp_error );
 
-       echo $postID;
+       if( $postID !== 0 ){
+
+        $to = get_bloginfo('admin_email');
+        $subject = "Seba Contact Form - " . $$name;
+
+        $headers[] = 'From: ' . get_bloginfo('name') . '<' . $to . '>'; 
+        $headers[] = 'Replay-To: ' .$title . '<' . $email . '>';
+        $headers[] = 'Content-Type: text/html: charset=UTF-8';
+
+
+        wp_mail( $to, $subject, $message, $headers );
+
+        echo $postID;
+       }else{
+           echo 0;
+       }
+
+    echo $postID;
 
     die();
 
