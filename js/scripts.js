@@ -222,7 +222,11 @@
                 console.log( response )
             },
             success: function( response ){
-                console.log(response) 
+               if (response == 0){
+                   console.log("Unable to save message");
+               }else{
+                   console.log("Message save");
+               }
             }
 
 
