@@ -242,3 +242,17 @@ function seba_get_post_navigation(){
  endif;
  
 }
+
+/* mailtrap */
+/*
+function mailtrap($phpmailer) {
+  $phpmailer->isSMTP(); 
+  $phpmailer->Host = 'smtp.mailtrap.io';
+  $phpmailer->SMTPAuth = true;
+  $phpmailer->Port = 2525;
+  $phpmailer->Username = '1d85b88f443385';
+  $phpmailer->Password = 'a377d362e77642';
+}
+
+add_action('phpmailer_init', 'mailtrap');
+*/

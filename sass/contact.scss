@@ -1,20 +1,76 @@
-#sebaContactForm{
+.form-title{
+        font-size:25px;
+        text-align: center;
+        color: $color-primary;
+        font-weight: 500;
+}
+.form-icon{
+            font-size: 62px;
+            padding: 10px;
+            color: rgba($color-primary,0.8);
+}
 
-  
+#sebaContactForm {
+
+        &.seba-contact-form{
+               padding: 10px 0;
+               max-width: 800px;
+               width: 100%;
+               margin: 0 auto;
+        }
+
         & #form-sent-message {
                 width: 100%;
                 margin-top: .25rem;
                 font-size: 80%;
 
-                &.seba-form-success{
-                       color: #28a745;
+                &.seba-form-success {
+                color: #28a745;
                 }
-                  &.seba-form-error {
-                      color: #dc3545;
-                  }
 
-             
+                &.seba-form-error {
+                color: #dc3545;
+                }
         }
-    
+
+        & .seba-form-control{
+                resize: vertical;
+                color: $color-primary;
+                &:focus{
+                        border: 2px solid $color-primary;
+                        outline: none;
+                        box-shadow: none;
+                }
+
+                &::placeholder{
+                        text-transform: uppercase;
+                        font-size:10px;
+                }
+          
+        }
+
+        & .form-group{
+                margin: 20px 0;
+        }
+
+        & .btn.btn-form-submit{
+                
+           background-color: rgba($color-primary, 0.8);
+           border-radius: 2px;
+           padding: 14px 60px;
+           font-size: 26px;
+           color:#fff;
+           font-weight: 100;
+           border:none;
+           @include animate(all,320ms);
+
+           &:hover,
+           &:focus{
+                background-color: rgba($color-primary, 1);
+                color: #fff;
+           }
+              
+        }
+
 
 }
