@@ -25,3 +25,61 @@
     width: 100%;
     height: auto;
 }
+
+@mixin phone-only {
+    @media (max-width: 599px) {
+        @content;
+    }
+}
+
+@mixin phone-up {
+    @media (min-width: 600px) {
+        @content;
+    }
+}
+
+@mixin tablet-down {
+    @media (max-width: 800px) {
+        @content;
+    }
+}
+@mixin tablet-up {
+    @media (min-width: 801px) {
+        @content;
+    }
+}
+
+@mixin small-desktop-down {
+    @media (max-width: 991px) {
+        @content;
+    }
+}
+
+@mixin small-desktop-up {
+    @media (min-width: 992px) {
+        @content;
+    }
+}
+
+@mixin desktop-down {
+    @media (max-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin desktop-up {
+    @media (min-width: 1201px) {
+        @content;
+    }
+}
+
+@mixin big-desktop-down {
+    @media (max-width: 1800px) {
+        @content;
+    }
+}
+@mixin big-desktop-up {
+    @media (min-width: 1801px) {
+        @content;
+    }
+}

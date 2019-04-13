@@ -5,7 +5,13 @@
    background-color: #000000e7; 
    text-align: center;
 
+       @include small-desktop-down {
+           display: none;
+       }
+
    & .navbar-nav{
+
+    display: flex;
 
     & li.current_page_item a {
         color:#fff;
@@ -21,5 +27,22 @@
         text-decoration: none;
     }
     }
-   
+
+    
+  
 }
+
+  .nav-mobile-menu {
+
+       @include small-desktop-up {
+           display: none;
+       }
+      & li {
+          text-align: center;
+          text-transform: uppercase;
+
+          &.current_page_item a {
+              border-bottom: 1px solid $orange;
+          }
+      }
+  }

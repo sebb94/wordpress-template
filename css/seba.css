@@ -153,6 +153,9 @@ a {
   justify-content: center;
   align-items: center;
   height: 350px; }
+  @media (max-width: 800px) {
+    .header-container {
+      height: 250px; } }
   .header-container .site-title {
     color: white;
     margin: 0; }
@@ -408,15 +411,30 @@ article {
   color: blue;
   background-color: #000000e7;
   text-align: center; }
-  .navbar-seba .navbar-nav li.current_page_item a {
-    color: #fff;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-    border-bottom: 5px solid #fff;
-    padding: 5px 20px; }
-  .navbar-seba .navbar-nav li a {
-    color: #eeebf3;
-    text-decoration: none; }
+  @media (max-width: 991px) {
+    .navbar-seba {
+      display: none; } }
+  .navbar-seba .navbar-nav {
+    display: flex; }
+    .navbar-seba .navbar-nav li.current_page_item a {
+      color: #fff;
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+      border-bottom: 5px solid #fff;
+      padding: 5px 20px; }
+    .navbar-seba .navbar-nav li a {
+      color: #eeebf3;
+      text-decoration: none; }
+
+@media (min-width: 992px) {
+  .nav-mobile-menu {
+    display: none; } }
+
+.nav-mobile-menu li {
+  text-align: center;
+  text-transform: uppercase; }
+  .nav-mobile-menu li.current_page_item a {
+    border-bottom: 1px solid #f58800; }
 
 h1 {
   font-size: 48px;
