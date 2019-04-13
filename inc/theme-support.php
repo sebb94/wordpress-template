@@ -246,7 +246,7 @@ function seba_get_post_navigation(){
 /* mailtrap */
 /*
 function mailtrap($phpmailer) {
-  $phpmailer->isSMTP();
+  $phpmailer->isSMTP(); 
   $phpmailer->Host = 'smtp.mailtrap.io';
   $phpmailer->SMTPAuth = true;
   $phpmailer->Port = 2525;
