@@ -2,12 +2,14 @@
 @package sebatheme
 Gallery format
 */
+
+global $detect;
 ?>
 
 <article id="post-<?php the_ID();?>" <?php post_class('seba-format-gallery');?>>
     <header class="entry-header text-center">
 
-        <?php if(seba_get_attachments()):?>
+        <?php if(seba_get_attachments() && !$detect->isMobile() && !$detect->isTablet()  ):?>
 
         <div id="post-gallery-<?php the_ID();?>" class="carousel slide seba-carousel-thumb" data-ride="carousel" data-interval="3000">
             <div class="carousel-inner">
@@ -63,6 +65,12 @@ Gallery format
     </header>
 
     <div clsas="entry-content">
+
+        <?php if(seba_get_attachments() && ( $detect->isMobile() || $detect->isTablet() ) ):?>
+            <a class="standard-featured-link" href="<?php the_permalink();?>"> 
+            <div class="standard-featured background-image" style="background-image:url(<?php echo seba_get_attachments();?>)"> </div>
+        </a>
+        <?php endif; ?>
 
 
         <div class="entry-excerpt">
